@@ -88,9 +88,19 @@ class TaskTableViewController: UITableViewController {
         
         switch identifier {
         case TaskDetailViewController.identifier:
+            guard let destination = segue.destination as? TaskDetailViewController else {
+                break
+            }
+            
+            destination.coreDataStack = coreDataStack
             break
             
         case CreateTaskViewController.identifier:
+            guard let destination = segue.destination as? CreateTaskViewController else {
+                break
+            }
+            
+            destination.coreDataStack = coreDataStack
             break
             
         default:

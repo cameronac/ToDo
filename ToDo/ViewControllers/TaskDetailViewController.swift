@@ -18,7 +18,7 @@ class TaskDetailViewController: UIViewController {
     
     //MARK: - Properties
     static let identifier = "detailSegue"
-    
+    var coreDataStack: CoreDataStack?
 
     /*
     // MARK: - Navigation

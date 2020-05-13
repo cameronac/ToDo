@@ -18,6 +18,7 @@ class CreateTaskViewController: UIViewController {
     
     //MARK: - Properties
     static let identifier = "createTaskSegue"
+    var coreDataStack: CoreDataStack?
     
     
     //MARK: - Outlets

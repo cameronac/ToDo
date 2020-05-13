@@ -119,7 +119,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B2V-uS-0bJ">
-                                <rect key="frame" x="15" y="60" width="384" height="211"/>
+                                <rect key="frame" x="15" y="60" width="384" height="262"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4z-xu-HF6">
                                         <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -127,27 +127,27 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p89-ez-Xqo">
-                                        <rect key="frame" x="0.0" y="28.5" width="384" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p89-ez-Xqo">
+                                        <rect key="frame" x="0.0" y="28.5" width="384" height="31.5"/>
                                         <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4k-Vh-lgO">
-                                        <rect key="frame" x="0.0" y="70.5" width="100.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="68" width="100.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C5B-mC-lhN">
-                                        <rect key="frame" x="0.0" y="99" width="384" height="71"/>
+                                        <rect key="frame" x="0.0" y="96.5" width="384" height="124.5"/>
                                         <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhY-6Y-uaf">
-                                        <rect key="frame" x="0.0" y="178" width="384" height="33"/>
+                                        <rect key="frame" x="0.0" y="229" width="384" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <state key="normal" title="Create Task"/>
                                         <connections>
@@ -157,11 +157,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="p89-ez-Xqo" firstAttribute="leading" secondItem="B2V-uS-0bJ" secondAttribute="leading" id="3k2-hR-YNr"/>
+                                    <constraint firstAttribute="height" constant="262" id="5sZ-aU-5xO"/>
                                     <constraint firstAttribute="trailing" secondItem="p89-ez-Xqo" secondAttribute="trailing" id="8LT-o8-MZS"/>
                                     <constraint firstItem="zhY-6Y-uaf" firstAttribute="leading" secondItem="B2V-uS-0bJ" secondAttribute="leading" id="8W4-CO-TYG"/>
                                     <constraint firstItem="C5B-mC-lhN" firstAttribute="leading" secondItem="B2V-uS-0bJ" secondAttribute="leading" id="Cyg-7l-9u2"/>
                                     <constraint firstAttribute="trailing" secondItem="C5B-mC-lhN" secondAttribute="trailing" id="I1y-Yh-pvb"/>
-                                    <constraint firstAttribute="height" constant="211" id="MUE-Nu-dmB"/>
                                     <constraint firstAttribute="trailing" secondItem="zhY-6Y-uaf" secondAttribute="trailing" id="nM1-fH-gNW"/>
                                 </constraints>
                             </stackView>
@@ -184,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBt-VZ-fPr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="583"/>
+            <point key="canvasLocation" x="1969.5652173913045" y="582.58928571428567"/>
         </scene>
         <!--Task Detail View Controller-->
         <scene sceneID="eux-vf-v1p">
