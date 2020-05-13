@@ -16,6 +16,9 @@ class TaskDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //MARK: - Properties
+    static let identifier = "detailSegue"
+    
 
     /*
     // MARK: - Navigation

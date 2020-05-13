@@ -16,7 +16,23 @@ class CreateTaskViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    //MARK: - Properties
+    static let identifier = "createTaskSegue"
+    
+    
+    //MARK: - Outlets
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    //MARK: - Actions
+    @IBAction func createTaskButtonPressed(_ sender: UIButton) {
+        
+        //Creating Task and Saving to CoreDataStack
+        Task(title: titleTextField.text, bodyText: descriptionTextView.text, complete: false)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

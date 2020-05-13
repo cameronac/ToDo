@@ -20,6 +20,7 @@
 		DDA6C86D246B98AF0094FD88 /* TaskRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6C86C246B98AF0094FD88 /* TaskRepresentation.swift */; };
 		DDD37CCE246BA17700CAC6A7 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD37CCD246BA17700CAC6A7 /* NetworkController.swift */; };
 		DDD37CD0246BAEEC00CAC6A7 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD37CCF246BAEEC00CAC6A7 /* CreateTaskViewController.swift */; };
+		DDD37CD2246BB05E00CAC6A7 /* Task+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD37CD1246BB05E00CAC6A7 /* Task+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DDA6C86C246B98AF0094FD88 /* TaskRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepresentation.swift; sourceTree = "<group>"; };
 		DDD37CCD246BA17700CAC6A7 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		DDD37CCF246BAEEC00CAC6A7 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
+		DDD37CD1246BB05E00CAC6A7 /* Task+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			children = (
 				DDA6C85D246B91C10094FD88 /* CoreDataStack.swift */,
 				DDA6C860246B91D90094FD88 /* TasksToDo.xcdatamodeld */,
+				DDD37CD1246BB05E00CAC6A7 /* Task+Convenience.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				DDA6C867246B97F50094FD88 /* TaskDetailViewController.swift in Sources */,
 				DDA6C865246B97AA0094FD88 /* TaskTableViewController.swift in Sources */,
 				DDA6C84A246B91A50094FD88 /* AppDelegate.swift in Sources */,
+				DDD37CD2246BB05E00CAC6A7 /* Task+Convenience.swift in Sources */,
 				DDA6C84C246B91A50094FD88 /* SceneDelegate.swift in Sources */,
 				DDA6C85E246B91C10094FD88 /* CoreDataStack.swift in Sources */,
 				DDA6C862246B91D90094FD88 /* TasksToDo.xcdatamodeld in Sources */,

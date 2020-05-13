@@ -80,7 +80,7 @@
                                 <connections>
                                     <outlet property="taskDescription" destination="8di-25-Mhg" id="eOx-gL-IdP"/>
                                     <outlet property="taskTitle" destination="nUl-tM-uoS" id="SQr-Pn-NK9"/>
-                                    <segue destination="KXo-bO-AkE" kind="show" id="aQN-Xd-Ej6"/>
+                                    <segue destination="KXo-bO-AkE" kind="show" identifier="detailSegue" id="aQN-Xd-Ej6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -92,7 +92,7 @@
                     <navigationItem key="navigationItem" title="ToDo" id="atF-dv-WJh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ia4-K2-8s2">
                             <connections>
-                                <segue destination="DGN-Ro-bYX" kind="presentation" id="lyC-Tp-yql"/>
+                                <segue destination="DGN-Ro-bYX" kind="presentation" identifier="createTaskSegue" id="lyC-Tp-yql"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -150,6 +150,9 @@
                                         <rect key="frame" x="0.0" y="178" width="384" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <state key="normal" title="Create Task"/>
+                                        <connections>
+                                            <action selector="createTaskButtonPressed:" destination="DGN-Ro-bYX" eventType="touchUpInside" id="dh5-Eh-WN6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -174,6 +177,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jxj-EF-pJQ"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="C5B-mC-lhN" id="bJz-0a-zue"/>
+                        <outlet property="titleTextField" destination="p89-ez-Xqo" id="0eK-HT-OtJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBt-VZ-fPr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
