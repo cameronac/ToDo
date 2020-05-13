@@ -19,6 +19,7 @@
 		DDA6C86A246B98500094FD88 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6C869246B98500094FD88 /* TaskTableViewCell.swift */; };
 		DDA6C86D246B98AF0094FD88 /* TaskRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6C86C246B98AF0094FD88 /* TaskRepresentation.swift */; };
 		DDD37CCE246BA17700CAC6A7 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD37CCD246BA17700CAC6A7 /* NetworkController.swift */; };
+		DDD37CD0246BAEEC00CAC6A7 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD37CCF246BAEEC00CAC6A7 /* CreateTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DDA6C869246B98500094FD88 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		DDA6C86C246B98AF0094FD88 /* TaskRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepresentation.swift; sourceTree = "<group>"; };
 		DDD37CCD246BA17700CAC6A7 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		DDD37CCF246BAEEC00CAC6A7 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				DDA6C864246B97AA0094FD88 /* TaskTableViewController.swift */,
 				DDA6C866246B97F50094FD88 /* TaskDetailViewController.swift */,
+				DDD37CCF246BAEEC00CAC6A7 /* CreateTaskViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				DDA6C85E246B91C10094FD88 /* CoreDataStack.swift in Sources */,
 				DDA6C862246B91D90094FD88 /* TasksToDo.xcdatamodeld in Sources */,
 				DDD37CCE246BA17700CAC6A7 /* NetworkController.swift in Sources */,
+				DDD37CD0246BAEEC00CAC6A7 /* CreateTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
