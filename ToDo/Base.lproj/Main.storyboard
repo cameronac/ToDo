@@ -39,7 +39,7 @@
                                             <rect key="frame" x="25" y="16" width="345" height="164"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="B92-by-XeI">
-                                                    <rect key="frame" x="0.0" y="7" width="257" height="150.5"/>
+                                                    <rect key="frame" x="0.0" y="11.5" width="257" height="141.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUl-tM-uoS">
                                                             <rect key="frame" x="0.0" y="0.0" width="73" height="20.5"/>
@@ -48,7 +48,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8di-25-Mhg">
-                                                            <rect key="frame" x="0.0" y="22.5" width="235" height="128"/>
+                                                            <rect key="frame" x="0.0" y="22.5" width="235" height="119"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -63,6 +63,9 @@
                                                     <state key="normal" image="square" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="completeButtonPressed:" destination="reO-4A-dWh" eventType="touchUpInside" id="CHG-Qe-yPe"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -75,6 +78,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="taskDescription" destination="8di-25-Mhg" id="eOx-gL-IdP"/>
+                                    <outlet property="taskTitle" destination="nUl-tM-uoS" id="SQr-Pn-NK9"/>
                                     <segue destination="KXo-bO-AkE" kind="show" id="aQN-Xd-Ej6"/>
                                 </connections>
                             </tableViewCell>
@@ -150,7 +155,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6rx-2A-uXr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9Un-Vp-76Q"/>
+                    <navigationItem key="navigationItem" id="9Un-Vp-76Q">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="pUm-zK-qi9"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct9-Sm-gsL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
