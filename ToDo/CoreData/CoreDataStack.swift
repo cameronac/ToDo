@@ -12,6 +12,7 @@ import CoreData
 
 class CoreDataStack {
 
+    //MARK: - Properties
     //Singleton
     static var shared = CoreDataStack() //CoreDataStack Object
     
@@ -31,13 +32,18 @@ class CoreDataStack {
         return container
     }
     
-    
     //Getting mainContext
     var mainContext: NSManagedObjectContext {
         return container.viewContext
     }
     
     
-    
-    
+    //MARK: - Methods
+    func save() {
+        do {
+            try mainContext.save()
+        } catch {
+            print("Error saving in CoreDataStack: \(error)")
+        }
+    }
 }
