@@ -13,12 +13,13 @@ class TaskTableViewController: UITableViewController {
     //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tasks = coreDataStack.fetchAllTasks()
     }
     
     
     //MARK: - Properties
     let coreDataStack = CoreDataStack()
+    var tasks: [Task]?
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -26,19 +27,31 @@ class TaskTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tasks?.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.identifier, for: indexPath)
 
-        // Configure the cell...
-
-        return cell
+        //Unwrapping
+        guard let tasks = tasks else {
+            print("Tasks is nil in: \(#file) \(#function) \(#line)")
+            return cell
+        }
+        
+        //Downcasting
+        guard let tempCell = cell as? TaskTableViewCell else {
+            print("Couldn't downcast cell to TaskTableViewCell in: \(#file) \(#function) \(#line)")
+            return cell
+        }
+        
+        //Assign Task variable in cell
+        tempCell.task = tasks[indexPath.row]
+        
+        return tempCell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

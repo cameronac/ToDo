@@ -30,6 +30,14 @@ class CreateTaskViewController: UIViewController {
         
         //Creating Task and Saving to CoreDataStack
         Task(title: titleTextField.text, bodyText: descriptionTextView.text, complete: false)
+        
+        //Save Task If we have the CoreDataStack Object
+        if let tempCoreDataStack = coreDataStack {
+            tempCoreDataStack.save()
+        }
+        
+        print(coreDataStack?.fetchAllTasks())
+        
         dismiss(animated: true, completion: nil)
     }
     

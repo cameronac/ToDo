@@ -14,14 +14,14 @@ class CoreDataStack {
 
     //MARK: - Properties
     //Singleton
-    static var shared = CoreDataStack() //CoreDataStack Object
+    static let shared = CoreDataStack() //CoreDataStack Object
     
     //Create CoreDataModel for Tasks
-    var container: NSPersistentContainer {
+    lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "TasksToDo")    //Get the CoreDataModel by Name
         
         //Completes the Creation of the CoreDataStack
-        container.loadPersistentStores { (description, error) in
+        container.loadPersistentStores { (_, error) in
             
             //Error Checking
             if let error = error {
@@ -30,7 +30,7 @@ class CoreDataStack {
         }
         
         return container
-    }
+    }()
     
     //Getting mainContext
     var mainContext: NSManagedObjectContext {
@@ -41,9 +41,28 @@ class CoreDataStack {
     //MARK: - Methods
     func save() {
         do {
-            try mainContext.save()
+            try CoreDataStack.shared.mainContext.save()
+            print("Task Saved")
         } catch {
             print("Error saving in CoreDataStack: \(error)")
+        }
+    }
+    
+    //Fetch Tasks
+    func fetchAllTasks() -> [Task] {
+        
+        //Fetch Request
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        let context = CoreDataStack.shared.mainContext
+        
+        //Try Fetching all Tasks
+        do {
+            let tasks = try context.fetch(fetchRequest)
+            print(tasks)
+            return tasks
+        } catch {
+            print("Error Fetching All Tasks in: \(#file): \(#function): \(#line): \(error)")
+            return []
         }
     }
 }

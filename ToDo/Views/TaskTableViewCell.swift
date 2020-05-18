@@ -17,6 +17,7 @@ class TaskTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     var task: Task?
+    static let identifier = "taskCell"
     
     //MARK: - Outlets
     @IBOutlet weak var taskTitle: UILabel!
