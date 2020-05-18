@@ -59,6 +59,15 @@ class TaskTableViewCell: UITableViewCell {
     func setupCell() {
         taskTitle.text = task?.title
         taskDescription.text = task?.bodyText
+        
+        //Change Complete and Assign a New Button Image
+        if task?.complete == false {
+            let image = UIImage(systemName: "square")
+            completeButton.setImage(image, for: .normal)
+        } else {
+            let image = UIImage(systemName: "checkmark.square.fill")
+            completeButton.setImage(image, for: .normal)
+        }
     }
     
     
