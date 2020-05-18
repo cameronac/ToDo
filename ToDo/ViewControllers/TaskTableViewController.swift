@@ -48,6 +48,7 @@ class TaskTableViewController: UITableViewController {
         
         //Assign Task variable in cell
         tempCell.task = tasks[indexPath.row]
+        tempCell.coreDataStack = coreDataStack
         
         return tempCell
     }

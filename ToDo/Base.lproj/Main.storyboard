@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="ccS-kp-9ap">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n0R-Xz-08n">
@@ -29,26 +29,26 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="196" id="reO-4A-dWh" customClass="TaskTableViewCell" customModule="ToDo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="196"/>
+                                <rect key="frame" x="0.0" y="83" width="414" height="196"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="reO-4A-dWh" id="MMx-O9-uFg">
                                     <rect key="frame" x="0.0" y="0.0" width="383" height="196"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="SGd-qB-OPG">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SGd-qB-OPG">
                                             <rect key="frame" x="25" y="16" width="345" height="164"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="B92-by-XeI">
-                                                    <rect key="frame" x="0.0" y="11.5" width="257" height="141.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="164"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUl-tM-uoS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="73" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8di-25-Mhg">
-                                                            <rect key="frame" x="0.0" y="22.5" width="235" height="119"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8di-25-Mhg">
+                                                            <rect key="frame" x="0.0" y="22.5" width="270" height="141.5"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -56,9 +56,18 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="nUl-tM-uoS" firstAttribute="leading" secondItem="B92-by-XeI" secondAttribute="leading" id="ODw-c6-clK"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8di-25-Mhg" secondAttribute="trailing" id="d8b-rg-mBA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nUl-tM-uoS" secondAttribute="trailing" id="pfU-ey-qUr"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATI-Ln-M5x">
-                                                    <rect key="frame" x="321" y="71" width="24" height="22"/>
+                                                    <rect key="frame" x="285" y="52" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="PP1-HZ-LZF"/>
+                                                        <constraint firstAttribute="height" constant="60" id="PWP-Lh-C6q"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" image="square" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
@@ -68,6 +77,11 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="B92-by-XeI" firstAttribute="top" secondItem="SGd-qB-OPG" secondAttribute="top" id="dON-ND-fkH"/>
+                                                <constraint firstAttribute="bottom" secondItem="B92-by-XeI" secondAttribute="bottom" id="fal-X2-rAT"/>
+                                                <constraint firstItem="B92-by-XeI" firstAttribute="leading" secondItem="SGd-qB-OPG" secondAttribute="leading" id="h2g-td-tKw"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -78,6 +92,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="completeButton" destination="ATI-Ln-M5x" id="eS8-Pe-6Ua"/>
                                     <outlet property="taskDescription" destination="8di-25-Mhg" id="eOx-gL-IdP"/>
                                     <outlet property="taskTitle" destination="nUl-tM-uoS" id="SQr-Pn-NK9"/>
                                     <segue destination="KXo-bO-AkE" kind="show" identifier="detailSegue" id="aQN-Xd-Ej6"/>
