@@ -19,7 +19,7 @@ class CreateTaskViewController: UIViewController {
     //MARK: - Properties
     static let identifier = "createTaskSegue"
     var coreDataStack: CoreDataStack?
-    
+    var delegate: TaskTableViewController?
     
     //MARK: - Outlets
     @IBOutlet weak var titleTextField: UITextField!
@@ -36,8 +36,7 @@ class CreateTaskViewController: UIViewController {
             tempCoreDataStack.save()
         }
         
-        print(coreDataStack?.fetchAllTasks())
-        
+        delegate?.updateTableView()
         dismiss(animated: true, completion: nil)
     }
     

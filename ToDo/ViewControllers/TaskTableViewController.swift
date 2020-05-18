@@ -16,21 +16,29 @@ class TaskTableViewController: UITableViewController {
         tasks = coreDataStack.fetchAllTasks()
     }
     
+    //MARK: - Functions
+    func updateTableView() {
+        tasks = coreDataStack.fetchAllTasks()
+        tableView.reloadData()
+    }
     
     //MARK: - Properties
     let coreDataStack = CoreDataStack()
     var tasks: [Task]?
 
     // MARK: - Table view data source
+    
+    //Sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
+    //Number of Tasks
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks?.count ?? 0
     }
 
-    
+    //Setting Cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.identifier, for: indexPath)
 
@@ -114,6 +122,7 @@ class TaskTableViewController: UITableViewController {
                 break
             }
             
+            destination.delegate = self
             destination.coreDataStack = coreDataStack
             break
             
