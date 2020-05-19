@@ -26,7 +26,6 @@ class TaskTableViewCell: UITableViewCell {
     
     //MARK: - Outlets
     @IBOutlet weak var taskTitle: UILabel!
-    @IBOutlet weak var taskDescription: UITextView!
     @IBOutlet weak var completeButton: UIButton!
     
     //MARK: - Actions
@@ -58,7 +57,6 @@ class TaskTableViewCell: UITableViewCell {
     //MARK: - Functions
     func setupCell() {
         taskTitle.text = task?.title
-        taskDescription.text = task?.bodyText
         
         //Change Complete and Assign a New Button Image
         if task?.complete == false {
@@ -69,9 +67,6 @@ class TaskTableViewCell: UITableViewCell {
             completeButton.setImage(image, for: .normal)
         }
     }
-    
-    
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -28,42 +28,24 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="196" id="reO-4A-dWh" customClass="TaskTableViewCell" customModule="ToDo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="83" width="414" height="196"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="63" id="reO-4A-dWh" customClass="TaskTableViewCell" customModule="ToDo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="83" width="414" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="reO-4A-dWh" id="MMx-O9-uFg">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="196"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SGd-qB-OPG">
-                                            <rect key="frame" x="25" y="16" width="345" height="164"/>
+                                            <rect key="frame" x="20" y="5" width="343" height="53"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="B92-by-XeI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="164"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUl-tM-uoS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8di-25-Mhg">
-                                                            <rect key="frame" x="0.0" y="22.5" width="270" height="141.5"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="nUl-tM-uoS" firstAttribute="leading" secondItem="B92-by-XeI" secondAttribute="leading" id="ODw-c6-clK"/>
-                                                        <constraint firstAttribute="trailing" secondItem="8di-25-Mhg" secondAttribute="trailing" id="d8b-rg-mBA"/>
-                                                        <constraint firstAttribute="trailing" secondItem="nUl-tM-uoS" secondAttribute="trailing" id="pfU-ey-qUr"/>
-                                                    </constraints>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUl-tM-uoS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="53"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATI-Ln-M5x">
-                                                    <rect key="frame" x="285" y="52" width="60" height="60"/>
+                                                    <rect key="frame" x="283" y="0.0" width="60" height="53"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="PP1-HZ-LZF"/>
                                                         <constraint firstAttribute="height" constant="60" id="PWP-Lh-C6q"/>
@@ -78,22 +60,22 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="B92-by-XeI" firstAttribute="top" secondItem="SGd-qB-OPG" secondAttribute="top" id="dON-ND-fkH"/>
-                                                <constraint firstAttribute="bottom" secondItem="B92-by-XeI" secondAttribute="bottom" id="fal-X2-rAT"/>
-                                                <constraint firstItem="B92-by-XeI" firstAttribute="leading" secondItem="SGd-qB-OPG" secondAttribute="leading" id="h2g-td-tKw"/>
+                                                <constraint firstAttribute="bottom" secondItem="nUl-tM-uoS" secondAttribute="bottom" id="5Z3-xN-hYB"/>
+                                                <constraint firstItem="nUl-tM-uoS" firstAttribute="top" secondItem="SGd-qB-OPG" secondAttribute="top" id="Pm9-59-KKe"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="SGd-qB-OPG" secondAttribute="trailing" constant="5" id="V5p-Qn-BEe"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="SGd-qB-OPG" secondAttribute="bottom" constant="5" id="igc-Uw-AC3"/>
-                                        <constraint firstItem="SGd-qB-OPG" firstAttribute="leading" secondItem="MMx-O9-uFg" secondAttribute="leadingMargin" constant="5" id="s4n-jt-bkc"/>
-                                        <constraint firstItem="SGd-qB-OPG" firstAttribute="top" secondItem="MMx-O9-uFg" secondAttribute="topMargin" constant="5" id="upl-Tu-CR1"/>
+                                        <constraint firstAttribute="trailing" secondItem="SGd-qB-OPG" secondAttribute="trailing" constant="20" id="H0s-kA-vfH"/>
+                                        <constraint firstItem="SGd-qB-OPG" firstAttribute="leading" secondItem="MMx-O9-uFg" secondAttribute="leading" constant="20" id="Ifc-vV-bzb"/>
+                                        <constraint firstItem="SGd-qB-OPG" firstAttribute="centerX" secondItem="MMx-O9-uFg" secondAttribute="centerX" id="LMS-S4-76e"/>
+                                        <constraint firstAttribute="bottom" secondItem="SGd-qB-OPG" secondAttribute="bottom" constant="5" id="PVQ-Gi-qzE"/>
+                                        <constraint firstItem="SGd-qB-OPG" firstAttribute="top" secondItem="MMx-O9-uFg" secondAttribute="top" constant="5" id="WVU-gO-WNV"/>
+                                        <constraint firstItem="SGd-qB-OPG" firstAttribute="centerY" secondItem="MMx-O9-uFg" secondAttribute="centerY" id="rEK-zQ-mL9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="completeButton" destination="ATI-Ln-M5x" id="eS8-Pe-6Ua"/>
-                                    <outlet property="taskDescription" destination="8di-25-Mhg" id="eOx-gL-IdP"/>
                                     <outlet property="taskTitle" destination="nUl-tM-uoS" id="SQr-Pn-NK9"/>
                                     <segue destination="KXo-bO-AkE" kind="show" identifier="detailSegue" id="aQN-Xd-Ej6"/>
                                 </connections>
@@ -210,15 +192,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="42r-td-F0v">
-                                <rect key="frame" x="15" y="103" width="384" height="267"/>
+                                <rect key="frame" x="15" y="103" width="384" height="264.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPD-Vl-sNL">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPD-Vl-sNL">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-8G-B6h">
+                                        <rect key="frame" x="0.0" y="36.5" width="384" height="201"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="mcV-8X-bIx">
-                                        <rect key="frame" x="0.0" y="39" width="384" height="22"/>
+                                        <rect key="frame" x="0.0" y="242.5" width="384" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cif-af-cwQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="89" height="22"/>
@@ -234,14 +224,6 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-8G-B6h">
-                                        <rect key="frame" x="0.0" y="66" width="384" height="201"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="bUK-8G-B6h" secondAttribute="trailing" id="G0D-8c-NSc"/>
