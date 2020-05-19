@@ -87,6 +87,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDo" id="atF-dv-WJh">
+                        <barButtonItem key="leftBarButtonItem" image="gear" catalog="system" id="aGr-cF-DOu"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ia4-K2-8s2">
                             <connections>
                                 <segue destination="DGN-Ro-bYX" kind="presentation" identifier="createTaskSegue" id="lyC-Tp-yql"/>
@@ -285,6 +286,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="square" catalog="system" width="128" height="114"/>
     </resources>
 </document>
