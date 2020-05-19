@@ -114,6 +114,13 @@ class TaskTableViewController: UITableViewController {
                 break
             }
             
+            //Unwrapping Task
+            guard let tasks = tasks, let row = tableView.indexPathForSelectedRow?.row else {
+                print("Tasks is nil when preparing for segue or bad row selection!")
+                return
+            }
+            
+            destination.task = tasks[row]
             destination.coreDataStack = coreDataStack
             break
             

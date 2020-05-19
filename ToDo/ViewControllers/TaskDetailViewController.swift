@@ -12,13 +12,37 @@ class TaskDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupView()
     }
     
     //MARK: - Properties
     static let identifier = "detailSegue"
     var coreDataStack: CoreDataStack?
+    var task: Task?
 
+    //MARK: - Outlets
+    @IBOutlet weak var titleLabel: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var completedLabel: UILabel!
+    @IBOutlet weak var completedButton: UIButton!
+    
+    //MARK: - Actions
+    @IBAction func completeButtonPressed(_ sender: UIButton) {
+        //TODO
+    }
+    
+    //MARK: - Functions
+    func setupView() {
+        //Unwrapping
+        guard let task = task else {
+            print("Task is nil in:  \(#file) \(#function) \(#line)")
+            return
+        }
+        
+        titleLabel.text = task.title
+        descriptionTextView.text = task.bodyText
+    }
+    
     /*
     // MARK: - Navigation
 
