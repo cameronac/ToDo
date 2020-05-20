@@ -87,7 +87,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDo" id="atF-dv-WJh">
-                        <barButtonItem key="leftBarButtonItem" image="gear" catalog="system" id="aGr-cF-DOu"/>
+                        <barButtonItem key="leftBarButtonItem" image="gear" catalog="system" id="aGr-cF-DOu">
+                            <connections>
+                                <segue destination="Roc-ae-AsS" kind="presentation" id="MkR-pg-FJm"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ia4-K2-8s2">
                             <connections>
                                 <segue destination="DGN-Ro-bYX" kind="presentation" identifier="createTaskSegue" id="lyC-Tp-yql"/>
@@ -97,7 +101,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfS-Pf-dhl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137.68115942029" y="233.70535714285714"/>
+            <point key="canvasLocation" x="1036" y="234"/>
         </scene>
         <!--Create Task View Controller-->
         <scene sceneID="dEc-K3-I7c">
@@ -184,6 +188,21 @@
             </objects>
             <point key="canvasLocation" x="1969.5652173913045" y="582.58928571428567"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="z0o-r5-ymC">
+            <objects>
+                <viewController id="Roc-ae-AsS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VMU-yQ-ebB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="eLm-Ju-qdh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mJR-h0-P1z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034.7826086956522" y="-429.24107142857139"/>
+        </scene>
         <!--Task Detail View Controller-->
         <scene sceneID="eux-vf-v1p">
             <objects>
@@ -236,6 +255,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jm7-YH-NxV">
+                                <rect key="frame" x="-15" y="455" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
