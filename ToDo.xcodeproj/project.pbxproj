@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD90D83D2474B7BC00D30D49 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90D83C2474B7BC00D30D49 /* ColorPickerViewController.swift */; };
+		DD90D914247612AF00D30D49 /* ThemePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90D913247612AF00D30D49 /* ThemePickerViewController.swift */; };
 		DDA6C84A246B91A50094FD88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6C849246B91A50094FD88 /* AppDelegate.swift */; };
 		DDA6C84C246B91A50094FD88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6C84B246B91A50094FD88 /* SceneDelegate.swift */; };
 		DDA6C851246B91A50094FD88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA6C84F246B91A50094FD88 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD90D83C2474B7BC00D30D49 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		DD90D913247612AF00D30D49 /* ThemePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerViewController.swift; sourceTree = "<group>"; };
 		DDA6C846246B91A50094FD88 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA6C849246B91A50094FD88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ViewControllers/AppDelegate.swift; sourceTree = "<group>"; };
 		DDA6C84B246B91A50094FD88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				DDA6C864246B97AA0094FD88 /* TaskTableViewController.swift */,
 				DDA6C866246B97F50094FD88 /* TaskDetailViewController.swift */,
 				DDD37CCF246BAEEC00CAC6A7 /* CreateTaskViewController.swift */,
+				DD90D83C2474B7BC00D30D49 /* ColorPickerViewController.swift */,
+				DD90D913247612AF00D30D49 /* ThemePickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,11 +210,13 @@
 			files = (
 				DDA6C86A246B98500094FD88 /* TaskTableViewCell.swift in Sources */,
 				DDA6C86D246B98AF0094FD88 /* TaskRepresentation.swift in Sources */,
+				DD90D83D2474B7BC00D30D49 /* ColorPickerViewController.swift in Sources */,
 				DDA6C867246B97F50094FD88 /* TaskDetailViewController.swift in Sources */,
 				DDA6C865246B97AA0094FD88 /* TaskTableViewController.swift in Sources */,
 				DDA6C84A246B91A50094FD88 /* AppDelegate.swift in Sources */,
 				DDD37CD2246BB05E00CAC6A7 /* Task+Convenience.swift in Sources */,
 				DDA6C84C246B91A50094FD88 /* SceneDelegate.swift in Sources */,
+				DD90D914247612AF00D30D49 /* ThemePickerViewController.swift in Sources */,
 				DDA6C85E246B91C10094FD88 /* CoreDataStack.swift in Sources */,
 				DDA6C862246B91D90094FD88 /* TasksToDo.xcdatamodeld in Sources */,
 				DDD37CCE246BA17700CAC6A7 /* NetworkController.swift in Sources */,
