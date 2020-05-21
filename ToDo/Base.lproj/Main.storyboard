@@ -87,11 +87,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDo" id="atF-dv-WJh">
-                        <barButtonItem key="leftBarButtonItem" image="paintbrush.fill" catalog="system" id="aGr-cF-DOu">
-                            <connections>
-                                <segue destination="Roc-ae-AsS" kind="presentation" identifier="colorSegue" id="MkR-pg-FJm"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Item" image="gear" catalog="system" id="Fh9-uT-uPU"/>
+                            <barButtonItem image="paintbrush.fill" catalog="system" id="aGr-cF-DOu">
+                                <connections>
+                                    <segue destination="Roc-ae-AsS" kind="presentation" identifier="colorSegue" id="MkR-pg-FJm"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ia4-K2-8s2">
                             <connections>
                                 <segue destination="DGN-Ro-bYX" kind="presentation" identifier="createTaskSegue" id="lyC-Tp-yql"/>
@@ -228,6 +231,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPD-Vl-sNL">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="32"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="A39-cT-67M"/>
                                         </constraints>
@@ -259,7 +263,7 @@
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some Text!" translatesAutoresizingMaskIntoConstraints="NO" id="C18-h5-EVr">
                                 <rect key="frame" x="15" y="216" width="384" height="270"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="270" id="U8A-iy-54D"/>
                                 </constraints>
@@ -317,6 +321,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="paintbrush.fill" catalog="system" width="128" height="125"/>
         <image name="square" catalog="system" width="128" height="114"/>
     </resources>

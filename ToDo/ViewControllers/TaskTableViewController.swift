@@ -13,7 +13,12 @@ class TaskTableViewController: UITableViewController {
     //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Fetch all Tasks
         tasks = coreDataStack.fetchAllTasks()
+        
+        //Get Saved Settings
+        navigationController?.navigationBar.barTintColor = colorController.getSavedColor()
     }
     
     //MARK: - Functions
@@ -25,11 +30,7 @@ class TaskTableViewController: UITableViewController {
     //MARK: - Properties
     let coreDataStack = CoreDataStack()
     var tasks: [Task]?
-    var color: UIColor = UIColor.systemIndigo {
-        willSet {
-            navigationController?.navigationBar.barTintColor = newValue
-        }
-    }
+    let colorController = ColorController()
 
     // MARK: - Table view data source
     
@@ -107,6 +108,7 @@ class TaskTableViewController: UITableViewController {
                 break
             }
             destination.delegate = self
+            destination.colorController = colorController
             break
             
         default:

@@ -23,7 +23,7 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     //MARK: - Properties
     static let identifier = "colorSegue"
     var delegate: TaskTableViewController?
-    var colorController = ColorController()
+    var colorController: ColorController?
     
     //MARK: - Outlets
     @IBOutlet weak var colorPickerView: UIPickerView!
@@ -31,24 +31,30 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     //MARK: - Methods
     func updateViews() {
         //Unwrapping
-        guard let delegate = delegate else {
-            print("Bad delegate in ThemePicker")
+        guard let delegate = delegate, var colorController = colorController else {
+            print("Bad delegate or colorController in ThemePicker")
             return
         }
         
-        colorController.currentColor = delegate.color
+        colorPickerView.selectRow(colorController.currentColorIndex, inComponent: 0, animated: true)
+        setBackgroundColor(index: colorController.currentColorIndex)
     }
     
     //Set Color
     func setBackgroundColor(index: Int) {
         
-        guard let color = colorController.colors[colorController.colorNames[index]] else {
-            print("Color is nil!")
+        //Unwrapping ColorController
+        guard let colorController = colorController else {
+            print("Couldn't unwrap colorController in ThemePickerViewController!")
             return
         }
+    
+        //Get Color
+        let color = colorController.getUIColor(name: colorController.colorNames[index])
+        colorController.saveCurrentColor(color: color, index: index)
         
         view.backgroundColor = color
-        delegate?.color = color
+        delegate?.navigationController?.navigationBar.barTintColor = color
     }
 }
 
@@ -63,12 +69,12 @@ extension ThemePickerViewController {
     
     //Return Color Count
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return colorController.colorNames.count
+        return colorController?.colorNames.count ?? 0
     }
     
     //Set Titles
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return colorController.colorNames[row]
+        return colorController?.colorNames[row] ?? "Nil"
     }
     
     //Value Changed
