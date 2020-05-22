@@ -34,13 +34,34 @@ class ColorController {
     
     //Saves Color Properties
     func saveCurrentColor(color: UIColor, index: Int) {
+        //Set Current Color and Index
         currentColor = color
         currentColorIndex = index
+        
+        //Save Index in UserDefaults
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(currentColorIndex, forKey: "Color")
     }
     
     func getSavedColor() -> UIColor {
-        //TODO
-        //return (5, UIColor.systemIndigo)
-        return UIColor.systemIndigo
+        //Get UserDefaults Color
+        let userDefaults = UserDefaults.standard
+        let index = userDefaults.integer(forKey: "Color")
+        
+        //Get Color
+        let colorName = colorNames[index]
+        let color = colors[colorName]
+        
+        //Unwrapping
+        guard let colorTemp = color else {
+            print("Color Temp returned nil in ColorController: \(#function)")
+            return UIColor.systemIndigo 
+        }
+        
+        //Set Current Color and Index
+        currentColor = colorTemp
+        currentColorIndex = index
+        
+        return colorTemp
     }
 }
