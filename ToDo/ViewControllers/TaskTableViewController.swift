@@ -14,45 +14,41 @@ class TaskTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Fetch all Tasks
-        tasks = coreDataStack.fetchAllTasks()
+        //Setting Delegates
+        taskController.delegate = self
+        
+        taskController.fetchTasks()
         
         //Get Saved Settings
         navigationController?.navigationBar.barTintColor = colorController.getSavedColor()
     }
-    
-    //MARK: - Functions
-    func updateTableView() {
-        tasks = coreDataStack.fetchAllTasks()
-        tableView.reloadData()
-    }
+
     
     //MARK: - Properties
     let coreDataStack = CoreDataStack()
     var tasks: [Task]?
+    let taskController = TaskController()
     let colorController = ColorController()
 
     // MARK: - Table view data source
     
     //Sections
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return taskController.sections.count
     }
 
-    //Number of Tasks
+    //Number of Tasks for section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks?.count ?? 0
+        print("Index: \(taskController.sections[section].tasks.count)")
+        return taskController.sections[section].tasks.count
     }
 
     //Setting Cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.identifier, for: indexPath)
-
-        //Unwrapping
-        guard let tasks = tasks else {
-            print("Tasks is nil in: \(#file) \(#function) \(#line)")
-            return cell
-        }
+        
+        //Getting Tasks
+        let tasks = taskController.sections[indexPath.section].tasks
         
         //Downcasting
         guard let tempCell = cell as? TaskTableViewCell else {
@@ -64,7 +60,14 @@ class TaskTableViewController: UITableViewController {
         tempCell.task = tasks[indexPath.row]
         tempCell.coreDataStack = coreDataStack
         
+        print("Adding Cell")
         return tempCell
+    }
+    
+    //Section Title's
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return taskController.sections[section].name
     }
     
     
@@ -111,8 +114,22 @@ class TaskTableViewController: UITableViewController {
             destination.colorController = colorController
             break
             
+        case CreateSectionViewController.identifier:
+            guard let destination = segue.destination as? CreateSectionViewController else {
+                break
+            }
+            destination.delegate = self
+            break
+            
         default:
             break
         }
+    }
+}
+
+
+extension TaskTableViewController: TaskControllerDelegate {
+    func updateViews() {
+        tableView.reloadData()
     }
 }

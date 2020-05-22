@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DD7203C424776919002507EE /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7203C324776919002507EE /* TaskController.swift */; };
+		DD7203C624777297002507EE /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7203C524777297002507EE /* Section.swift */; };
+		DD7203C82477960A002507EE /* CreateSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7203C72477960A002507EE /* CreateSectionViewController.swift */; };
 		DD90D83D2474B7BC00D30D49 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90D83C2474B7BC00D30D49 /* ColorPickerViewController.swift */; };
 		DD90D914247612AF00D30D49 /* ThemePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90D913247612AF00D30D49 /* ThemePickerViewController.swift */; };
 		DD90D9162476215900D30D49 /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90D9152476215900D30D49 /* ColorController.swift */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		DD7203C324776919002507EE /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		DD7203C524777297002507EE /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		DD7203C72477960A002507EE /* CreateSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSectionViewController.swift; sourceTree = "<group>"; };
 		DD90D83C2474B7BC00D30D49 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		DD90D913247612AF00D30D49 /* ThemePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerViewController.swift; sourceTree = "<group>"; };
 		DD90D9152476215900D30D49 /* ColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 				DDD37CCF246BAEEC00CAC6A7 /* CreateTaskViewController.swift */,
 				DD90D83C2474B7BC00D30D49 /* ColorPickerViewController.swift */,
 				DD90D913247612AF00D30D49 /* ThemePickerViewController.swift */,
+				DD7203C72477960A002507EE /* CreateSectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA6C86C246B98AF0094FD88 /* TaskRepresentation.swift */,
+				DD7203C524777297002507EE /* Section.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDA6C86A246B98500094FD88 /* TaskTableViewCell.swift in Sources */,
+				DD7203C82477960A002507EE /* CreateSectionViewController.swift in Sources */,
 				DD90D9162476215900D30D49 /* ColorController.swift in Sources */,
 				DDA6C86D246B98AF0094FD88 /* TaskRepresentation.swift in Sources */,
 				DD90D83D2474B7BC00D30D49 /* ColorPickerViewController.swift in Sources */,
@@ -227,6 +234,7 @@
 				DDA6C85E246B91C10094FD88 /* CoreDataStack.swift in Sources */,
 				DDA6C862246B91D90094FD88 /* TasksToDo.xcdatamodeld in Sources */,
 				DDD37CCE246BA17700CAC6A7 /* NetworkController.swift in Sources */,
+				DD7203C624777297002507EE /* Section.swift in Sources */,
 				DD7203C424776919002507EE /* TaskController.swift in Sources */,
 				DDD37CD0246BAEEC00CAC6A7 /* CreateTaskViewController.swift in Sources */,
 			);

@@ -28,15 +28,15 @@ class CreateTaskViewController: UIViewController {
     //MARK: - Actions
     @IBAction func createTaskButtonPressed(_ sender: UIButton) {
         
-        //Creating Task and Saving to CoreDataStack
-        Task(title: titleTextField.text, bodyText: descriptionTextView.text, complete: false)
-        
-        //Save Task If we have the CoreDataStack Object
-        if let tempCoreDataStack = coreDataStack {
-            tempCoreDataStack.save()
+        //Unwrapping delegate
+        guard let delegate = delegate as? TaskTableViewController else {
+            print("Bad delegate in CreateTaskViewController!")
+            return
         }
         
-        delegate?.updateTableView()
+        //Create Task
+        delegate.taskController.createTask(title: titleTextField.text ?? "No Title Provided", bodyText: descriptionTextView.text, complete: false)
+    
         dismiss(animated: true, completion: nil)
     }
     
