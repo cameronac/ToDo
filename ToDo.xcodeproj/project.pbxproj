@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD7203C424776919002507EE /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7203C324776919002507EE /* TaskController.swift */; };
 		DD90D83D2474B7BC00D30D49 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90D83C2474B7BC00D30D49 /* ColorPickerViewController.swift */; };
 		DD90D914247612AF00D30D49 /* ThemePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90D913247612AF00D30D49 /* ThemePickerViewController.swift */; };
 		DD90D9162476215900D30D49 /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90D9152476215900D30D49 /* ColorController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD7203C324776919002507EE /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		DD90D83C2474B7BC00D30D49 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		DD90D913247612AF00D30D49 /* ThemePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerViewController.swift; sourceTree = "<group>"; };
 		DD90D9152476215900D30D49 /* ColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				DDD37CCD246BA17700CAC6A7 /* NetworkController.swift */,
 				DD90D9152476215900D30D49 /* ColorController.swift */,
+				DD7203C324776919002507EE /* TaskController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				DDA6C85E246B91C10094FD88 /* CoreDataStack.swift in Sources */,
 				DDA6C862246B91D90094FD88 /* TasksToDo.xcdatamodeld in Sources */,
 				DDD37CCE246BA17700CAC6A7 /* NetworkController.swift in Sources */,
+				DD7203C424776919002507EE /* TaskController.swift in Sources */,
 				DDD37CD0246BAEEC00CAC6A7 /* CreateTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

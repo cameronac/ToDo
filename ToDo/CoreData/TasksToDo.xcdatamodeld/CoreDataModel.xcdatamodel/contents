@@ -4,9 +4,10 @@
         <attribute name="bodyText" optional="YES" attributeType="String"/>
         <attribute name="complete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="section" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Task" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Task" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>
