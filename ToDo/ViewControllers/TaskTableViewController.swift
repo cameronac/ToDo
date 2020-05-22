@@ -32,18 +32,18 @@ class TaskTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-    //Sections
+    //# of Sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return taskController.sections.count
     }
 
-    //Number of Tasks for section
+    //# of Tasks for each Section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("Index: \(taskController.sections[section].tasks.count)")
         return taskController.sections[section].tasks.count
     }
 
-    //Setting Cells
+    //Setting up Cells giving them the necessary properties to display correctly
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.identifier, for: indexPath)
         
@@ -72,8 +72,8 @@ class TaskTableViewController: UITableViewController {
     
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    //Prepare Segue assigning delegates and variables to viewControllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //Unwrap

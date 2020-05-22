@@ -20,6 +20,8 @@ class ColorController {
     var colorNames: [String] = ["Red", "Blue", "Gray", "Pink", "Teal", "Indigo", "Orange", "Purple", "Yellow", "Green"]
     
     //MARK: - Methods
+    
+    ///Returns a UIColor by getting the name of the color.
     func getUIColor(name: String) -> UIColor {
         let color = colors[name]
         
@@ -32,8 +34,9 @@ class ColorController {
         return tempColor
     }
     
-    //Saves Color Properties
+    ///Saves newly selected color in UserDefaults. Updates currentColor and currentColorIndex variables.
     func saveCurrentColor(color: UIColor, index: Int) {
+        
         //Set Current Color and Index
         currentColor = color
         currentColorIndex = index
@@ -43,6 +46,7 @@ class ColorController {
         userDefaults.set(currentColorIndex, forKey: "Color")
     }
     
+    ///Gets the saved color from UserDefaults and then returns UIColor. Updates currentColor and currentColorIndex variables.
     func getSavedColor() -> UIColor {
         //Get UserDefaults Color
         let userDefaults = UserDefaults.standard

@@ -21,13 +21,13 @@ class TaskController {
     
     //MARK: - Methods
     
-    ///Fetches and Saves Tasks to Tasks Variable
+    ///Fetches and Saves Tasks to Tasks Variable in the TaskController
     func fetchTasks() {
         let allTasks = CoreDataStack.shared.fetchAllTasks()
         organizeTasks(tasks: allTasks)
     }
     
-    ///Create a new Task, save it and place it in the correct section. Also calls protocol updateViews function
+    ///Create a new Task, save it and place it in the correct section. Calls protocol updateViews function!
     func createTask(title: String, bodyText: String, complete: Bool, section: String = "Default") {
         
         //Unwrapping Delegate
@@ -46,12 +46,13 @@ class TaskController {
         delegate.updateViews()
     }
     
+    ///Create a new Section. The new section is appended to the sections array. Calls protocol updateViews function!
     func createASection(name: String) {
         
-        //Do we already have a section with this name?
+        //Checking if we already have the section name
         let result = findSection(name: name)
     
-        //Didn't find a section
+        //Create a section since we don't have this name yet
         if result == false {
             sections.append(Section(name: name, tasks: []))
         }
@@ -62,20 +63,21 @@ class TaskController {
     
     ///Organizes all Tasks into the correct sections
     func organizeTasks(tasks: [Task]) {
-        print("Inside organizeTasks")
+        
         //Loop Through Tasks and Organize them
         for i in sections {
-            print("Inside for loop")
             for l in tasks {
-                //Section name is equal to tasks section
+                
+                //Section name is equal to tasks section name
                 if i.name == l.section {
                     i.tasks.append(l) //Add to section
+                    break
                 }
             }
         }
     }
     
-    ///Finds a Section and returns true if it finds one
+    ///Finds a Section and returns true if it finds one.
     func findSection(name: String) -> Bool {
         
         for i in sections {
