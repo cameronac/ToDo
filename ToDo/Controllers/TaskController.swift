@@ -37,7 +37,10 @@ class TaskController {
         }
         
         //Creating Task and Saving to CoreDataStack
-        Task(title: title, bodyText: bodyText, complete: complete, section: section)
+        let task = Task(title: title, bodyText: bodyText, complete: complete, section: section)
+        
+        //Organize Single Task in Sections
+        organizeSingleTask(task: task)
         
         //Save Task If we have the CoreDataStack Object
         delegate.coreDataStack.save()
@@ -61,18 +64,40 @@ class TaskController {
         delegate?.updateViews()
     }
     
-    ///Organizes all Tasks into the correct sections
+    ///Organizes all Tasks into the correct sections. Meant to be only used once when starting up the app.
     func organizeTasks(tasks: [Task]) {
+        
+        //Loop Through and Add the necessary Sections
+        for i in tasks {
+            //Unwrapping Section name
+            guard let sectionName = i.section else {
+                print("Caution Task Went Through organizeTasks without a section!")
+                continue
+            }
+            
+            createASection(name: sectionName)
+        }
+        
         
         //Loop Through Tasks and Organize them
         for i in sections {
             for l in tasks {
-                
                 //Section name is equal to tasks section name
                 if i.name == l.section {
                     i.tasks.append(l) //Add to section
                     break
                 }
+            }
+        }
+    }
+    
+    ///Organizes a Single Task into the correct Section
+    func organizeSingleTask(task: Task) {
+        
+        for i in sections {
+            if i.name == task.section {
+                i.tasks.append(task)
+                break
             }
         }
     }
