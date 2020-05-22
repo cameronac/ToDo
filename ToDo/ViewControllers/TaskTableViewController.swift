@@ -39,7 +39,6 @@ class TaskTableViewController: UITableViewController {
 
     //# of Tasks for each Section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Index: \(taskController.sections[section].tasks.count)")
         return taskController.sections[section].tasks.count
     }
 
@@ -60,7 +59,6 @@ class TaskTableViewController: UITableViewController {
         tempCell.task = tasks[indexPath.row]
         tempCell.coreDataStack = coreDataStack
         
-        print("Adding Cell")
         return tempCell
     }
     

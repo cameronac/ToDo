@@ -84,8 +84,7 @@ class TaskController {
             for l in tasks {
                 //Section name is equal to tasks section name
                 if i.name == l.section {
-                    i.tasks.append(l) //Add to section
-                    break
+                    i.tasks.append(l) //Add to Tasks to Section
                 }
             }
         }
