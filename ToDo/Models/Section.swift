@@ -12,11 +12,13 @@ class Section {
     
     //MARK: - Properties
     var name: String
+    var isCollapsed: Bool
     var tasks: [Task?]
 
     //MARK: - Initializer
-    init(name: String, tasks: [Task]) {
+    init(name: String, tasks: [Task], isCollapsed: Bool = true) {
         self.name = name
         self.tasks = tasks
+        self.isCollapsed = isCollapsed
     }
 }

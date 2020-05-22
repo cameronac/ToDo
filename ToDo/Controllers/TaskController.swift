@@ -75,6 +75,7 @@ class TaskController {
                 continue
             }
             
+            print("Create a Section!")
             createASection(name: sectionName)
         }
         
@@ -92,6 +93,14 @@ class TaskController {
     
     ///Organizes a Single Task into the correct Section
     func organizeSingleTask(task: Task) {
+        
+        //Unwrapping Section name
+        guard let sectionName = task.section else {
+            print("Caution Task Went Through organizeTasks without a section!")
+            return
+        }
+        
+        createASection(name: sectionName)
         
         for i in sections {
             if i.name == task.section {
