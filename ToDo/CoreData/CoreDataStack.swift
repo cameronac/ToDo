@@ -42,7 +42,6 @@ class CoreDataStack {
     func save() {
         do {
             try CoreDataStack.shared.mainContext.save()
-            print("Task Saved")
         } catch {
             print("Error saving in CoreDataStack: \(error)")
         }
@@ -58,7 +57,6 @@ class CoreDataStack {
         //Try Fetching all Tasks
         do {
             let tasks = try context.fetch(fetchRequest)
-            print(tasks)
             return tasks
         } catch {
             print("Error Fetching All Tasks in: \(#file): \(#function): \(#line): \(error)")

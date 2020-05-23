@@ -6,13 +6,14 @@
 //  Copyright © 2020 iOS BW. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Section {
     
     //MARK: - Properties
     var name: String
     var isCollapsed: Bool
+    var headerView: HeaderView
     var tasks: [Task?]
 
     //MARK: - Initializer
@@ -20,5 +21,6 @@ class Section {
         self.name = name
         self.tasks = tasks
         self.isCollapsed = isCollapsed
+        self.headerView = HeaderView(name: name)
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreGraphics
 
 class TaskTableViewController: UITableViewController {
 
@@ -16,14 +17,12 @@ class TaskTableViewController: UITableViewController {
         
         //Setting Delegates
         taskController.delegate = self
-        
         taskController.fetchTasks()
         
         //Get Saved Settings
         navigationController?.navigationBar.barTintColor = colorController.getSavedColor()
     }
 
-    
     //MARK: - Properties
     let coreDataStack = CoreDataStack()
     var tasks: [Task]?
@@ -39,7 +38,13 @@ class TaskTableViewController: UITableViewController {
 
     //# of Tasks for each Section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return taskController.sections[section].tasks.count
+        
+        //isCollapsed == false
+        if taskController.sections[section].isCollapsed == false {
+            return 0
+        } else {
+            return taskController.sections[section].tasks.count
+        }
     }
 
     //Setting up Cells giving them the necessary properties to display correctly
@@ -64,8 +69,25 @@ class TaskTableViewController: UITableViewController {
     
     //Section Title's
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
         return taskController.sections[section].name
+    }
+
+    //Display View on Section Header
+    /*override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return createHeaderView(section: section)
+    }*/
+    
+    //Setting Header Colors and Title
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        //Down Casting
+        guard let header = view as? UITableViewHeaderFooterView else {
+            return
+        }
+        
+        view.tintColor = .gray
+        //header.textLabel?.textColor = UIColor.white
+        modifyHeaderView(header: header, section: section)
     }
     
     
@@ -127,7 +149,49 @@ class TaskTableViewController: UITableViewController {
 
 
 extension TaskTableViewController: TaskControllerDelegate {
+    
+    ///Reloads TableView
     func updateViews() {
         tableView.reloadData()
     }
+    
+    ///Creating HeaderView and Adding it a target
+    func modifyHeaderView(header: UITableViewHeaderFooterView, section: Int) {
+        taskController.sections[section].headerView.header = header
+        let button = taskController.sections[section].headerView.button
+        button.addTarget(self, action: #selector(sectionButtonPressed(sender:)), for: .touchUpInside)
+    }
+    
+    ///Section Button was Pressed
+    @objc func sectionButtonPressed(sender: UIButton) {
+        
+        //Unwrapping Section Title
+        guard let text = sender.titleLabel?.text else {
+            print("Section Button does not have a name!")
+            return
+        }
+        
+        //Collapse Section
+        taskController.collapse(section: text)
+        
+        //Find Index
+        guard let index = taskController.getSection(name: text) else {
+            print("Returned Bad Index using taskController")
+            return
+        }
+        
+        print(index)
+        
+        //Set Label
+        if taskController.sections[index].isCollapsed == true {
+            taskController.sections[index].headerView.label.text = "↓"
+        } else {
+            taskController.sections[index].headerView.label.text = "→"
+        }
+        
+        updateViews()
+    }
+    
+    
+    
 }

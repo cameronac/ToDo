@@ -6,7 +6,7 @@
 //  Copyright © 2020 iOS BW. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol TaskControllerDelegate {
     func updateViews()
@@ -74,8 +74,7 @@ class TaskController {
                 print("Caution Task Went Through organizeTasks without a section!")
                 continue
             }
-            
-            print("Create a Section!")
+    
             createASection(name: sectionName)
         }
         
@@ -120,6 +119,34 @@ class TaskController {
         }
         
         return false
+    }
+    
+    ///Finds a Section and returns the Section
+    func getSection(name: String) -> Int? {
+        
+        for i in 0...sections.count - 1 {
+            if sections[i].name == name {
+                return i
+            }
+        }
+        
+        return nil
+    }
+    
+    ///Collapse Section: Modifies isCollapsed variable in Section and Returns the Index of the Section to be collapsed
+    func collapse(section name: String) -> Int? {
+        var section: Int?
+        
+        //Get the correct section
+        for i in 0...sections.count - 1 {
+            if sections[i].name == name {
+                sections[i].isCollapsed = !sections[i].isCollapsed
+                section = i
+                break
+            }
+        }
+        
+        return section
     }
     
 }
