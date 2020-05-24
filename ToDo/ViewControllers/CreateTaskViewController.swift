@@ -32,8 +32,9 @@ class CreateTaskViewController: UIViewController {
         //Unwrapping delegate
         if let delegate = delegate {
             //Create Task
-            delegate.taskController.createTask(title: titleTextField.text ?? "No Title Provided", bodyText: descriptionTextView.text, complete: false, section: section?.name ?? "Default")
+            delegate.taskController.createTask(title: titleTextField.text ?? "No Title Provided", bodyText: descriptionTextView.text, complete: false, section: delegate.selectedSection?.name ?? "Default")
         }
+        
         dismiss(animated: true, completion: nil)
     }
     
