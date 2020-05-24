@@ -28,24 +28,24 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="63" id="reO-4A-dWh" customClass="TaskTableViewCell" customModule="ToDo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="83" width="414" height="63"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="60" id="reO-4A-dWh" customClass="TaskTableViewCell" customModule="ToDo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="83" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="reO-4A-dWh" id="MMx-O9-uFg">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SGd-qB-OPG">
-                                            <rect key="frame" x="20" y="5" width="343" height="53"/>
+                                            <rect key="frame" x="20" y="5" width="343" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUl-tM-uoS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="53"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATI-Ln-M5x">
-                                                    <rect key="frame" x="283" y="0.0" width="60" height="53"/>
+                                                    <rect key="frame" x="283" y="0.0" width="60" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="PP1-HZ-LZF"/>
                                                         <constraint firstAttribute="height" constant="60" id="PWP-Lh-C6q"/>
@@ -80,6 +80,31 @@
                                     <segue destination="KXo-bO-AkE" kind="show" identifier="detailSegue" id="aQN-Xd-Ej6"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addTaskCell" rowHeight="60" id="63P-FP-mjR" customClass="TaskAddTableViewCell" customModule="ToDo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="143" width="414" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="63P-FP-mjR" id="fub-jw-Rjb">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0M-51-ZM3">
+                                            <rect key="frame" x="172" y="20" width="70.5" height="20.5"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="V0M-51-ZM3" firstAttribute="centerY" secondItem="fub-jw-Rjb" secondAttribute="centerY" id="HSG-21-XjZ"/>
+                                        <constraint firstItem="V0M-51-ZM3" firstAttribute="centerX" secondItem="fub-jw-Rjb" secondAttribute="centerX" id="nBY-DH-0Y1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="DGN-Ro-bYX" kind="presentation" identifier="createTaskSegue" id="1vt-qT-fVF"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Ky7-Dd-mOI" id="OBY-bT-srI"/>
@@ -95,23 +120,16 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="Ia4-K2-8s2">
-                                <connections>
-                                    <segue destination="DGN-Ro-bYX" kind="presentation" identifier="createTaskSegue" id="lyC-Tp-yql"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="doc.fill" catalog="system" id="yhQ-dp-SJs">
-                                <connections>
-                                    <segue destination="bp8-v4-p97" kind="presentation" identifier="createSectionSegue" id="Hys-E6-L9L"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" image="doc.fill" catalog="system" id="yhQ-dp-SJs">
+                            <connections>
+                                <segue destination="bp8-v4-p97" kind="presentation" identifier="createSectionSegue" id="Hys-E6-L9L"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfS-Pf-dhl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="234"/>
+            <point key="canvasLocation" x="1034.7826086956522" y="233.70535714285714"/>
         </scene>
         <!--Create Task View Controller-->
         <scene sceneID="dEc-K3-I7c">
@@ -223,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJR-h0-P1z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034.7826086956522" y="-429.24107142857139"/>
+            <point key="canvasLocation" x="1035" y="-408"/>
         </scene>
         <!--Create Section View Controller-->
         <scene sceneID="GiZ-tW-NBM">

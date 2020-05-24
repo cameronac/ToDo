@@ -33,6 +33,7 @@ class CreateSectionViewController: UIViewController {
         }
         
         delegate?.taskController.createASection(name: text)
+        dismiss(animated: true, completion: nil)
     }
     
     

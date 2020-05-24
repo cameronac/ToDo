@@ -28,6 +28,7 @@ class TaskTableViewController: UITableViewController {
     var tasks: [Task]?
     let taskController = TaskController()
     let colorController = ColorController()
+    var selectedSection: Section?
 
     // MARK: - Table view data source
     
@@ -43,28 +44,31 @@ class TaskTableViewController: UITableViewController {
         if taskController.sections[section].isCollapsed == false {
             return 0
         } else {
-            return taskController.sections[section].tasks.count
+            return taskController.sections[section].tasks.count + 1
         }
     }
-
+    
     //Setting up Cells giving them the necessary properties to display correctly
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.identifier, for: indexPath)
         
-        //Getting Tasks
-        let tasks = taskController.sections[indexPath.section].tasks
-        
-        //Downcasting
-        guard let tempCell = cell as? TaskTableViewCell else {
-            print("Couldn't downcast cell to TaskTableViewCell in: \(#file) \(#function) \(#line)")
+        //Task Cell
+        if indexPath.row < taskController.sections[indexPath.section].tasks.count {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.identifier, for: indexPath) as! TaskTableViewCell
+            
+            //Assign Task variable in cell
+            cell.task = taskController.sections[indexPath.section].tasks[indexPath.row]
+            cell.coreDataStack = coreDataStack
+            
+            return cell
+        } else {
+            
+            //Add Task Cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TaskAddTableViewCell.identifier, for: indexPath) as! TaskAddTableViewCell
+            
+            cell.section = taskController.sections[indexPath.section]
+            
             return cell
         }
-        
-        //Assign Task variable in cell
-        tempCell.task = tasks[indexPath.row]
-        tempCell.coreDataStack = coreDataStack
-        
-        return tempCell
     }
     
     //Section Title's
@@ -72,10 +76,10 @@ class TaskTableViewController: UITableViewController {
         return taskController.sections[section].name
     }
 
-    //Display View on Section Header
-    /*override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return createHeaderView(section: section)
-    }*/
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSection = taskController.sections[indexPath.section]
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     //Setting Header Colors and Title
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -90,7 +94,10 @@ class TaskTableViewController: UITableViewController {
         modifyHeaderView(header: header, section: section)
     }
     
-    
+    //Table View height
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     // MARK: - Navigation
     
     //Prepare Segue assigning delegates and variables to viewControllers
@@ -100,6 +107,8 @@ class TaskTableViewController: UITableViewController {
         guard let identifier = segue.identifier else {
             return
         }
+        
+        print("Identifier: \(identifier)")
         
         switch identifier {
         case TaskDetailViewController.identifier:
@@ -180,15 +189,22 @@ extension TaskTableViewController: TaskControllerDelegate {
             return
         }
         
-        print(index)
-        
         //Set Label
-        if taskController.sections[index].isCollapsed == true {
+        /*if taskController.sections[index].isCollapsed == true {
             taskController.sections[index].headerView.label.text = "↓"
+            taskController.sections[index].headerView.label.setNeedsDisplay()
+            taskController.sections[index].headerView.setNeedsDisplay()
+
+            print("Setting Label to uncollapsed")
         } else {
             taskController.sections[index].headerView.label.text = "→"
-        }
+            taskController.sections[index].headerView.label.setNeedsDisplay()
+            taskController.sections[index].headerView.setNeedsDisplay()
+            print("Setting Label to collapsed")
+        }*/
         
+        taskController.sections[index].headerView.reload()
+        print("Triggered setNeedsDisplay()")
         updateViews()
     }
     

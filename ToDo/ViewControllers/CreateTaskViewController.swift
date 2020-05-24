@@ -20,6 +20,7 @@ class CreateTaskViewController: UIViewController {
     static let identifier = "createTaskSegue"
     var coreDataStack: CoreDataStack?
     var delegate: TaskTableViewController?
+    var section: Section?
     
     //MARK: - Outlets
     @IBOutlet weak var titleTextField: UITextField!
@@ -29,14 +30,10 @@ class CreateTaskViewController: UIViewController {
     @IBAction func createTaskButtonPressed(_ sender: UIButton) {
         
         //Unwrapping delegate
-        guard let delegate = delegate as? TaskTableViewController else {
-            print("Bad delegate in CreateTaskViewController!")
-            return
+        if let delegate = delegate {
+            //Create Task
+            delegate.taskController.createTask(title: titleTextField.text ?? "No Title Provided", bodyText: descriptionTextView.text, complete: false, section: section?.name ?? "Default")
         }
-        
-        //Create Task
-        delegate.taskController.createTask(title: titleTextField.text ?? "No Title Provided", bodyText: descriptionTextView.text, complete: false)
-    
         dismiss(animated: true, completion: nil)
     }
     
