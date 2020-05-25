@@ -24,8 +24,6 @@
 		DDA6C865246B97AA0094FD88 /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6C864246B97AA0094FD88 /* TaskTableViewController.swift */; };
 		DDA6C867246B97F50094FD88 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6C866246B97F50094FD88 /* TaskDetailViewController.swift */; };
 		DDA6C86A246B98500094FD88 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6C869246B98500094FD88 /* TaskTableViewCell.swift */; };
-		DDA6C86D246B98AF0094FD88 /* TaskRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6C86C246B98AF0094FD88 /* TaskRepresentation.swift */; };
-		DDD37CCE246BA17700CAC6A7 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD37CCD246BA17700CAC6A7 /* NetworkController.swift */; };
 		DDD37CD0246BAEEC00CAC6A7 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD37CCF246BAEEC00CAC6A7 /* CreateTaskViewController.swift */; };
 		DDD37CD2246BB05E00CAC6A7 /* Task+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD37CD1246BB05E00CAC6A7 /* Task+Convenience.swift */; };
 /* End PBXBuildFile section */
@@ -50,8 +48,6 @@
 		DDA6C864246B97AA0094FD88 /* TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
 		DDA6C866246B97F50094FD88 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		DDA6C869246B98500094FD88 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
-		DDA6C86C246B98AF0094FD88 /* TaskRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepresentation.swift; sourceTree = "<group>"; };
-		DDD37CCD246BA17700CAC6A7 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		DDD37CCF246BAEEC00CAC6A7 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		DDD37CD1246BB05E00CAC6A7 /* Task+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,7 +132,6 @@
 		DDA6C86B246B98A40094FD88 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DDA6C86C246B98AF0094FD88 /* TaskRepresentation.swift */,
 				DD7203C524777297002507EE /* Section.swift */,
 			);
 			path = Models;
@@ -145,7 +140,6 @@
 		DDD37CCC246BA16900CAC6A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DDD37CCD246BA17700CAC6A7 /* NetworkController.swift */,
 				DD90D9152476215900D30D49 /* ColorController.swift */,
 				DD7203C324776919002507EE /* TaskController.swift */,
 			);
@@ -226,7 +220,6 @@
 				DDA6C86A246B98500094FD88 /* TaskTableViewCell.swift in Sources */,
 				DD7203C82477960A002507EE /* CreateSectionViewController.swift in Sources */,
 				DD90D9162476215900D30D49 /* ColorController.swift in Sources */,
-				DDA6C86D246B98AF0094FD88 /* TaskRepresentation.swift in Sources */,
 				DD90D83D2474B7BC00D30D49 /* ColorPickerViewController.swift in Sources */,
 				DDA6C867246B97F50094FD88 /* TaskDetailViewController.swift in Sources */,
 				DDA6C865246B97AA0094FD88 /* TaskTableViewController.swift in Sources */,
@@ -237,7 +230,6 @@
 				DD90D914247612AF00D30D49 /* ThemePickerViewController.swift in Sources */,
 				DDA6C85E246B91C10094FD88 /* CoreDataStack.swift in Sources */,
 				DDA6C862246B91D90094FD88 /* TasksToDo.xcdatamodeld in Sources */,
-				DDD37CCE246BA17700CAC6A7 /* NetworkController.swift in Sources */,
 				DD7203C624777297002507EE /* Section.swift in Sources */,
 				DD7203C424776919002507EE /* TaskController.swift in Sources */,
 				DDD37CD0246BAEEC00CAC6A7 /* CreateTaskViewController.swift in Sources */,

@@ -11,7 +11,7 @@ import CoreData
 
 extension Task {
     
-    @discardableResult convenience init(title: String?, bodyText: String?, complete: Bool, section: String = "Default", identifier: UUID = UUID(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init(title: String?, bodyText: String?, complete: Bool, section: String = "Default", identifier: UUID = UUID(), date: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
         self.title = title
@@ -19,5 +19,6 @@ extension Task {
         self.complete = complete
         self.section = section
         self.identifier = identifier
+        self.date = date
     }
 }

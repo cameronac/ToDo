@@ -28,12 +28,10 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var completedLabel: UILabel!
-    //@IBOutlet weak var completedButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     
     //MARK: - Actions
-    @IBAction func completeButtonPressed(_ sender: UIButton) {
-        //TODO
-    }
     
     //Edit the Title and Description Fields| If they changed save the changes
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
@@ -76,6 +74,21 @@ class TaskDetailViewController: UIViewController {
         
         titleLabel.text = task.title
         descriptionTextView.text = task.bodyText
+        
+        if let date = task.date {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            dateLabel.text = "Date: \(formatter.string(from: date))"
+        }
+        
+        
+        
+        
+        if task.complete == true {
+            completedLabel.text = "Status: Completed"
+        } else {
+            completedLabel.text = "Status: Not Completed"
+        }
     }
     
     /*
