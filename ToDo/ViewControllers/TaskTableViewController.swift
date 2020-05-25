@@ -31,7 +31,18 @@ class TaskTableViewController: UITableViewController {
     let colorController = ColorController()
     static let headerHeight: CGFloat = 40
 
+    
     // MARK: - Table view data source
+    
+    //Deleting Rows
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    
+        //Deleting Row
+        if editingStyle == .delete {
+            taskController.sections[indexPath.section].tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
     //# of Sections
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,12 +86,12 @@ class TaskTableViewController: UITableViewController {
         return taskController.sections[section].name
     }
 
-    ///Setting Selected Section so CreateTaskViewController| Tells Task what Section to add tasks to
+    //Setting Selected Section so CreateTaskViewController| Tells Task what Section to add tasks to
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    ///Table View height
+    //Table View height
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -153,18 +164,16 @@ extension TaskTableViewController: TaskControllerDelegate {
         tableView.reloadData()
     }
     
-    
     //Setting Up Header
-    
-    
+
     //Step: 1
-    ///Setting Headers Height since we already know it's width
+    //Setting Headers Height since we already know it's width
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
     
     //Step: 2
-    ///Giving Header view it's section view from taskController.sections.view
+    //Giving Header view it's section view from taskController.sections.view
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return taskController.sections[section].view
     }
