@@ -30,7 +30,6 @@ class CreateSectionViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
     //MARK: - Unused Code
     override func viewDidLoad() {
         super.viewDidLoad()

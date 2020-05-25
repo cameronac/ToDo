@@ -43,7 +43,9 @@ class TaskDetailViewController: UIViewController {
             sender.title = "Done"
             titleLabel.isUserInteractionEnabled = true
             descriptionTextView.isUserInteractionEnabled = true
+            animateToGray()
         } else {
+            animateToWhite()
             sender.title = "Edit"
             titleLabel.isUserInteractionEnabled = false
             descriptionTextView.isUserInteractionEnabled = false
@@ -64,6 +66,30 @@ class TaskDetailViewController: UIViewController {
     }
     
     //MARK: - Functions
+    
+    ///Animate to Gray
+    func animateToGray() {
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                   //White to Gray
+                   UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                    self.titleLabel.backgroundColor = .systemGray3
+                    self.descriptionTextView.backgroundColor = .systemGray3
+            }
+        })
+    }
+    
+    ///Animate to White
+    func animateToWhite() {
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                   //White to Gray
+                   UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                    self.titleLabel.backgroundColor = .white
+                    self.descriptionTextView.backgroundColor = .white
+            }
+        })
+        
+    }
+    
     
     ///Sets up the Views with properties when viewDidLoad
     func setupView() {

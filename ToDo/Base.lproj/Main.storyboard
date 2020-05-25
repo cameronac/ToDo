@@ -98,14 +98,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDo" id="atF-dv-WJh">
-                        <leftBarButtonItems>
-                            <barButtonItem title="Item" image="gear" catalog="system" id="Fh9-uT-uPU"/>
-                            <barButtonItem image="paintbrush.fill" catalog="system" id="aGr-cF-DOu">
-                                <connections>
-                                    <segue destination="Roc-ae-AsS" kind="presentation" identifier="colorSegue" id="MkR-pg-FJm"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" image="paintbrush.fill" catalog="system" id="aGr-cF-DOu">
+                            <connections>
+                                <segue destination="Roc-ae-AsS" kind="presentation" identifier="colorSegue" id="MkR-pg-FJm"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="doc.fill" catalog="system" id="yhQ-dp-SJs">
                             <connections>
                                 <segue destination="bp8-v4-p97" kind="presentation" identifier="createSectionSegue" id="Hys-E6-L9L"/>
@@ -299,7 +296,6 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPD-Vl-sNL">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="32"/>
-                                        <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="A39-cT-67M"/>
                                         </constraints>
@@ -331,7 +327,6 @@
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some Text!" translatesAutoresizingMaskIntoConstraints="NO" id="C18-h5-EVr">
                                 <rect key="frame" x="15" y="216" width="384" height="270"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="270" id="U8A-iy-54D"/>
                                 </constraints>
@@ -395,7 +390,6 @@
     </scenes>
     <resources>
         <image name="doc.fill" catalog="system" width="115" height="128"/>
-        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="paintbrush.fill" catalog="system" width="128" height="125"/>
         <image name="square" catalog="system" width="128" height="114"/>
     </resources>
