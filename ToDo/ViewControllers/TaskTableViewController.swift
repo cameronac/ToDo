@@ -21,6 +21,7 @@ class TaskTableViewController: UITableViewController {
         
         //Get Saved Settings
         navigationController?.navigationBar.barTintColor = colorController.getSavedColor()
+        tableView.reloadData()
     }
 
     //MARK: - Properties
@@ -29,6 +30,7 @@ class TaskTableViewController: UITableViewController {
     let taskController = TaskController()
     let colorController = ColorController()
     var selectedSection: Section?
+    static let headerHeight: CGFloat = 40
 
     // MARK: - Table view data source
     
@@ -76,28 +78,17 @@ class TaskTableViewController: UITableViewController {
         return taskController.sections[section].name
     }
 
+    ///Setting Selected Section so CreateTaskViewController| Tells Task what Section to add tasks to
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedSection = taskController.sections[indexPath.section]
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    //Setting Header Colors and Title
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        
-        //Down Casting
-        guard let header = view as? UITableViewHeaderFooterView else {
-            return
-        }
-        
-        view.tintColor = .gray
-        //header.textLabel?.textColor = UIColor.white
-        modifyHeaderView(header: header, section: section)
-    }
-    
-    //Table View height
+    ///Table View height
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    
     // MARK: - Navigation
     
     //Prepare Segue assigning delegates and variables to viewControllers
@@ -164,11 +155,31 @@ extension TaskTableViewController: TaskControllerDelegate {
         tableView.reloadData()
     }
     
-    ///Creating HeaderView and Adding it a target
-    func modifyHeaderView(header: UITableViewHeaderFooterView, section: Int) {
-        taskController.sections[section].headerView.header = header
-        let button = taskController.sections[section].headerView.button
-        button.addTarget(self, action: #selector(sectionButtonPressed(sender:)), for: .touchUpInside)
+    
+    //Setting Up Header
+    
+    
+    //Step: 1
+    ///Setting Headers Height since we already know it's width
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+        
+    //Step: 2
+    ///Getting Header View and Assign its view to the HeaderView.header variable and adding a target for the button
+    /*override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        //Check if Sections view was already set
+        if taskController.sections[section].isViewSet == false {
+            taskController.sections[section].headerView.setup()
+            let button = taskController.sections[section].headerView.button
+            button.addTarget(self, action: #selector(sectionButtonPressed(sender:)), for: .touchUpInside)
+        }
+    }*/
+    
+    //Step: 2
+    ///Setting up Headers for view
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return taskController.sections[section].view
     }
     
     ///Section Button was Pressed
@@ -189,22 +200,6 @@ extension TaskTableViewController: TaskControllerDelegate {
             return
         }
         
-        //Set Label
-        /*if taskController.sections[index].isCollapsed == true {
-            taskController.sections[index].headerView.label.text = "↓"
-            taskController.sections[index].headerView.label.setNeedsDisplay()
-            taskController.sections[index].headerView.setNeedsDisplay()
-
-            print("Setting Label to uncollapsed")
-        } else {
-            taskController.sections[index].headerView.label.text = "→"
-            taskController.sections[index].headerView.label.setNeedsDisplay()
-            taskController.sections[index].headerView.setNeedsDisplay()
-            print("Setting Label to collapsed")
-        }*/
-        
-        taskController.sections[index].headerView.reload()
-        print("Triggered setNeedsDisplay()")
         updateViews()
     }
     

@@ -57,7 +57,11 @@ class TaskController {
     
         //Create a section since we don't have this name yet
         if result == false {
-            sections.append(Section(name: name, tasks: []))
+            guard let delegate = delegate as? TaskTableViewController else {
+                print("Bad delegate in TaskController: Create Section Functions")
+                return
+            }
+            sections.append(Section(name: name, tasks: [], tableView: delegate.tableView))
         }
         
         //Update Views

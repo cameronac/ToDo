@@ -10,7 +10,6 @@
 		DD7203C424776919002507EE /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7203C324776919002507EE /* TaskController.swift */; };
 		DD7203C624777297002507EE /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7203C524777297002507EE /* Section.swift */; };
 		DD7203C82477960A002507EE /* CreateSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7203C72477960A002507EE /* CreateSectionViewController.swift */; };
-		DD7203CA24788F4E002507EE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7203C924788F4E002507EE /* HeaderView.swift */; };
 		DD7203CC2479AE47002507EE /* TaskAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7203CB2479AE47002507EE /* TaskAddTableViewCell.swift */; };
 		DD90D83D2474B7BC00D30D49 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90D83C2474B7BC00D30D49 /* ColorPickerViewController.swift */; };
 		DD90D914247612AF00D30D49 /* ThemePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90D913247612AF00D30D49 /* ThemePickerViewController.swift */; };
@@ -35,7 +34,6 @@
 		DD7203C324776919002507EE /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		DD7203C524777297002507EE /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		DD7203C72477960A002507EE /* CreateSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSectionViewController.swift; sourceTree = "<group>"; };
-		DD7203C924788F4E002507EE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		DD7203CB2479AE47002507EE /* TaskAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAddTableViewCell.swift; sourceTree = "<group>"; };
 		DD90D83C2474B7BC00D30D49 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		DD90D913247612AF00D30D49 /* ThemePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			children = (
 				DDA6C86C246B98AF0094FD88 /* TaskRepresentation.swift */,
 				DD7203C524777297002507EE /* Section.swift */,
-				DD7203C924788F4E002507EE /* HeaderView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,7 +224,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDA6C86A246B98500094FD88 /* TaskTableViewCell.swift in Sources */,
-				DD7203CA24788F4E002507EE /* HeaderView.swift in Sources */,
 				DD7203C82477960A002507EE /* CreateSectionViewController.swift in Sources */,
 				DD90D9162476215900D30D49 /* ColorController.swift in Sources */,
 				DDA6C86D246B98AF0094FD88 /* TaskRepresentation.swift in Sources */,
