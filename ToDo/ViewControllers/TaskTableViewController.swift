@@ -39,6 +39,16 @@ class TaskTableViewController: UITableViewController {
     
         //Deleting Row
         if editingStyle == .delete {
+            
+            guard let task = taskController.sections[indexPath.section].tasks[indexPath.row] else {
+                print("Couldn't delete task in: \(#file) \(#function) \(#line)")
+                return
+            }
+            
+            //Delete From CoreData First
+            coreDataStack.delete(object: task)
+            
+            //Delete From Fetched Tasks
             taskController.sections[indexPath.section].tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

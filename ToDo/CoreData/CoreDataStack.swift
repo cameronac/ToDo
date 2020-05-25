@@ -47,6 +47,11 @@ class CoreDataStack {
         }
     }
     
+    func delete(object: NSManagedObject) {
+        CoreDataStack.shared.mainContext.delete(object)
+        save()
+    }
+    
     //Fetch Tasks
     func fetchAllTasks() -> [Task] {
         
