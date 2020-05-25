@@ -31,7 +31,7 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     //MARK: - Methods
     func updateViews() {
         //Unwrapping
-        guard let delegate = delegate, var colorController = colorController else {
+        guard let colorController = colorController else {
             print("Bad delegate or colorController in ThemePicker")
             return
         }

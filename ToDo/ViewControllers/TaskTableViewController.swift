@@ -203,13 +203,7 @@ extension TaskTableViewController: TaskControllerDelegate {
         }
         
         //Collapse Section
-        taskController.collapse(section: text)
-        
-        //Find Index
-        guard let index = taskController.getSection(name: text) else {
-            print("Returned Bad Index using taskController")
-            return
-        }
+        let _ = taskController.collapse(section: text)
         
         updateViews()
     }
