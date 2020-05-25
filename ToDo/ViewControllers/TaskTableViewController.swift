@@ -96,17 +96,12 @@ class TaskTableViewController: UITableViewController {
         }
     }
     
-    //Section Title's
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return taskController.sections[section].name
-    }
-
     //Setting Selected Section so CreateTaskViewController| Tells Task what Section to add tasks to
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    //Table View height
+    //Setting Table View height
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -147,7 +142,6 @@ class TaskTableViewController: UITableViewController {
             
             destination.delegate = self
             destination.indexPath = tableView.indexPathForSelectedRow
-            destination.coreDataStack = coreDataStack
             break
             
         case ThemePickerViewController.identifier:
@@ -184,7 +178,7 @@ extension TaskTableViewController: TaskControllerDelegate {
     //Step: 1
     //Setting Headers Height since we already know it's width
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return TaskTableViewController.headerHeight
     }
     
     //Step: 2

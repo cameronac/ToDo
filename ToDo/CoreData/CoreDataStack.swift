@@ -13,8 +13,9 @@ import CoreData
 class CoreDataStack {
 
     //MARK: - Properties
-    //Singleton
-    static let shared = CoreDataStack() //CoreDataStack Object
+    
+    ///Universal CoreDataStack Object that is used to fetch, save, and delete our tasks
+    static let shared = CoreDataStack()
     
     //Create CoreDataModel for Tasks
     lazy var container: NSPersistentContainer = {
@@ -39,6 +40,8 @@ class CoreDataStack {
     
     
     //MARK: - Methods
+    
+    ///Saves Tasks to CoreData allowing there to be persistence
     func save() {
         do {
             try CoreDataStack.shared.mainContext.save()
@@ -47,12 +50,13 @@ class CoreDataStack {
         }
     }
     
+    ///Deletes a task object and saves the changes
     func delete(object: NSManagedObject) {
         CoreDataStack.shared.mainContext.delete(object)
         save()
     }
     
-    //Fetch Tasks
+    ///Fetches all Tasks at the start of the app
     func fetchAllTasks() -> [Task] {
         
         //Fetch Request

@@ -29,7 +29,10 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var colorPickerView: UIPickerView!
     
     //MARK: - Methods
+    
+    ///Updates Views
     func updateViews() {
+        
         //Unwrapping
         guard let colorController = colorController else {
             print("Bad delegate or colorController in ThemePicker")
@@ -40,7 +43,7 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
         setBackgroundColor(index: colorController.currentColorIndex)
     }
     
-    //Set Color
+    ///Sets new Background color for TaskTableViewController and Saves new Color value
     func setBackgroundColor(index: Int) {
         
         //Unwrapping ColorController

@@ -9,25 +9,19 @@
 import UIKit
 
 class CreateTaskViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     //MARK: - Properties
     static let identifier = "createTaskSegue"
-    var coreDataStack: CoreDataStack?
     var delegate: TaskTableViewController?
     var indexPath: IndexPath?
-    var section: Section?
     
     //MARK: - Outlets
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     
     //MARK: - Actions
+    
+    ///Creates a Task when the Button is pressed if section is not nil
     @IBAction func createTaskButtonPressed(_ sender: UIButton) {
         
         //Unwrapping delegate
@@ -43,5 +37,12 @@ class CreateTaskViewController: UIViewController {
         }
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    //MARK: - Unused Code
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
     }
 }

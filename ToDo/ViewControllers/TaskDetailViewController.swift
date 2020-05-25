@@ -64,6 +64,8 @@ class TaskDetailViewController: UIViewController {
     }
     
     //MARK: - Functions
+    
+    ///Sets up the Views with properties when viewDidLoad
     func setupView() {
         
         //Unwrapping
@@ -81,24 +83,10 @@ class TaskDetailViewController: UIViewController {
             dateLabel.text = "Date: \(formatter.string(from: date))"
         }
         
-        
-        
-        
         if task.complete == true {
             completedLabel.text = "Status: Completed"
         } else {
             completedLabel.text = "Status: Not Completed"
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

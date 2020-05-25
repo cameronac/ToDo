@@ -13,7 +13,6 @@ class Section {
     //MARK: - Properties
     var name: String
     var isCollapsed: Bool
-    //var headerView: HeaderView
     var tasks: [Task?]
     var isViewSet: Bool = false
     var delegate: TaskTableViewController
@@ -31,7 +30,6 @@ class Section {
         self.delegate = taskTableView
         self.setupView()
     }
-    
     
     //MARK: - Methods
     ///Sets up the header view with the appropriate
@@ -51,7 +49,6 @@ class Section {
         button.setTitle(name, for: .normal)
         button.tintColor = .white
         
-        
         //Set Button Properties
         button.translatesAutoresizingMaskIntoConstraints = false
         button.contentHorizontalAlignment = .center
@@ -60,7 +57,7 @@ class Section {
         button.setTitle("\(name)", for: .normal)
         button.isUserInteractionEnabled = true
         
-        //Add Subview
+        //Add Subviews
         view.addSubview(button)
         
         //Setting up Button Constraints

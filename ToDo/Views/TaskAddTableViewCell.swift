@@ -13,6 +13,7 @@ class TaskAddTableViewCell: UITableViewCell {
     //MARK: - Properties
     static let identifier = "addTaskCell"
     
+    //MARK: - Unused Code
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
