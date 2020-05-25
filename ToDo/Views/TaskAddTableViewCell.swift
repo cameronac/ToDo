@@ -12,7 +12,6 @@ class TaskAddTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     static let identifier = "addTaskCell"
-    var section: Section? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -61,7 +61,9 @@ class TaskController {
                 print("Bad delegate in TaskController: Create Section Functions")
                 return
             }
-            sections.append(Section(name: name, tasks: [], tableView: delegate.tableView))
+            
+            //Adding Section
+            sections.append(Section(name: name, tasks: [], taskTableView: delegate.self))
         }
         
         //Update Views

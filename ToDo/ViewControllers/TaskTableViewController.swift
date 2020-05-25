@@ -67,8 +67,6 @@ class TaskTableViewController: UITableViewController {
             //Add Task Cell
             let cell = tableView.dequeueReusableCell(withIdentifier: TaskAddTableViewCell.identifier, for: indexPath) as! TaskAddTableViewCell
             
-            cell.section = taskController.sections[indexPath.section]
-            
             return cell
         }
     }
@@ -164,20 +162,9 @@ extension TaskTableViewController: TaskControllerDelegate {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
-        
-    //Step: 2
-    ///Getting Header View and Assign its view to the HeaderView.header variable and adding a target for the button
-    /*override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        //Check if Sections view was already set
-        if taskController.sections[section].isViewSet == false {
-            taskController.sections[section].headerView.setup()
-            let button = taskController.sections[section].headerView.button
-            button.addTarget(self, action: #selector(sectionButtonPressed(sender:)), for: .touchUpInside)
-        }
-    }*/
     
     //Step: 2
-    ///Setting up Headers for view
+    ///Giving Header view it's section view from taskController.sections.view
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return taskController.sections[section].view
     }
