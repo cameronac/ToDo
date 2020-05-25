@@ -18,6 +18,7 @@ class TaskDetailViewController: UIViewController {
     //MARK: - Properties
     static let identifier = "detailSegue"
     var coreDataStack: CoreDataStack?
+    var delegate: TaskTableViewController?
     var task: Task?
 
     //MARK: - Outlets
@@ -33,9 +34,10 @@ class TaskDetailViewController: UIViewController {
     
     //MARK: - Functions
     func setupView() {
+        
         //Unwrapping
         guard let task = task else {
-            print("Task is nil in:  \(#file) \(#function) \(#line)")
+            print("Delegate is nil in:  \(#file) \(#function) \(#line)")
             return
         }
         

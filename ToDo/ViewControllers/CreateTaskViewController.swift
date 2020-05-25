@@ -20,6 +20,7 @@ class CreateTaskViewController: UIViewController {
     static let identifier = "createTaskSegue"
     var coreDataStack: CoreDataStack?
     var delegate: TaskTableViewController?
+    var indexPath: IndexPath?
     var section: Section?
     
     //MARK: - Outlets
@@ -31,8 +32,14 @@ class CreateTaskViewController: UIViewController {
         
         //Unwrapping delegate
         if let delegate = delegate {
+            
+            guard let indexPath = indexPath else {
+                print("Could not add a task to a nil section: \(#file) \(#function) \(#line)")
+                return
+            }
+            
             //Create Task
-            delegate.taskController.createTask(title: titleTextField.text ?? "No Title Provided", bodyText: descriptionTextView.text, complete: false, section: delegate.selectedSection?.name ?? "Default")
+            delegate.taskController.createTask(title: titleTextField.text ?? "No Title Provided", bodyText: descriptionTextView.text, complete: false, section: delegate.taskController.sections[indexPath.section].name)
         }
         
         dismiss(animated: true, completion: nil)

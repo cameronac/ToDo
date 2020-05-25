@@ -29,7 +29,6 @@ class TaskTableViewController: UITableViewController {
     var tasks: [Task]?
     let taskController = TaskController()
     let colorController = ColorController()
-    var selectedSection: Section?
     static let headerHeight: CGFloat = 40
 
     // MARK: - Table view data source
@@ -78,7 +77,6 @@ class TaskTableViewController: UITableViewController {
 
     ///Setting Selected Section so CreateTaskViewController| Tells Task what Section to add tasks to
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedSection = taskController.sections[indexPath.section]
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -97,21 +95,22 @@ class TaskTableViewController: UITableViewController {
             return
         }
         
-        print("Identifier: \(identifier)")
-        
         switch identifier {
         case TaskDetailViewController.identifier:
             guard let destination = segue.destination as? TaskDetailViewController else {
                 break
             }
             
-            //Unwrapping Task
-            guard let tasks = tasks, let row = tableView.indexPathForSelectedRow?.row else {
-                print("Tasks is nil when preparing for segue or bad row selection!")
+            //Unwrapping
+            guard let indexPath = tableView.indexPathForSelectedRow else {
+                print("IndexPath is nil when unwrapping it in the tableView")
                 return
             }
             
-            destination.task = tasks[row]
+            print("Section: \(indexPath.section), Row: \(indexPath.row)")
+            
+            destination.delegate = self
+            destination.task = taskController.sections[indexPath.section].tasks[indexPath.row]
             destination.coreDataStack = coreDataStack
             break
             
@@ -121,6 +120,7 @@ class TaskTableViewController: UITableViewController {
             }
             
             destination.delegate = self
+            destination.indexPath = tableView.indexPathForSelectedRow
             destination.coreDataStack = coreDataStack
             break
             
