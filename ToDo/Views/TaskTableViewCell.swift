@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class TaskTableViewCell: UITableViewCell {
 
@@ -37,6 +38,9 @@ class TaskTableViewCell: UITableViewCell {
         }
         
         task.complete = !task.complete
+        
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
         
         guard let coreDataStack = coreDataStack else {
             print("CoreDataStack is nil in TaskTableViewCell can't save changes!")

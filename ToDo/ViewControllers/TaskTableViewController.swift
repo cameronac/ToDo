@@ -36,7 +36,7 @@ class TaskTableViewController: UITableViewController {
     
     //Deleting Rows
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    
+
         //Deleting Row
         if editingStyle == .delete {
             
@@ -51,6 +51,11 @@ class TaskTableViewController: UITableViewController {
             //Delete From Fetched Tasks
             taskController.sections[indexPath.section].tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            //Inserting
+            
+            
+            
         }
     }
     
