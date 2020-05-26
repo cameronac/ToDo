@@ -198,8 +198,9 @@ extension TaskTableViewController: TaskControllerDelegate {
         return taskController.sections[section].view
     }
     
-    ///Section Button was Pressed
+    ///Section Collapse Button was pressed
     @objc func sectionButtonPressed(sender: UIButton) {
+        print("Tag: \(sender.tag)")
         
         //Unwrapping Section Title
         guard let text = sender.titleLabel?.text else {
@@ -213,6 +214,14 @@ extension TaskTableViewController: TaskControllerDelegate {
         updateViews()
     }
     
+    ///Section Color Button was pressed
+    @objc func sectionColorButtonPressed(sender: UIButton) {
+        print("Tag: \(sender.tag)")
+    }
     
+    ///Section Delete Button was pressed
+    @objc func sectionDeleteButtonPressed(sender: UIButton) {
+        print("Tag: \(sender.tag)")
+    }
     
 }

@@ -63,7 +63,7 @@ class TaskController {
             }
             
             //Adding Section
-            sections.append(Section(name: name, tasks: [], taskTableView: delegate.self))
+            sections.append(Section(name: name, tasks: [], taskTableView: delegate.self, sectionIndex: sections.count))
         }
         
         //Update Views

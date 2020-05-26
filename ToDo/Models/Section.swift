@@ -17,6 +17,7 @@ class Section {
     var isViewSet: Bool = false
     var delegate: TaskTableViewController
     var viewColor = UIColor.systemGray
+    var sectionIndex: Int
     
     //Created Objects
     var view: UIView? = nil
@@ -27,17 +28,23 @@ class Section {
     let stackView = UIStackView()
     
     //MARK: - Initializer
-    init(name: String, tasks: [Task], isCollapsed: Bool = false, taskTableView: TaskTableViewController) {
+    init(name: String, tasks: [Task], isCollapsed: Bool = false, taskTableView: TaskTableViewController, sectionIndex: Int) {
         self.name = name
         self.tasks = tasks
         self.isCollapsed = isCollapsed
         self.delegate = taskTableView
+        self.sectionIndex = sectionIndex
         self.setupView()
     }
     
     //MARK: - Methods
     ///Sets up the header view with the appropriate
     private func setupView() {
+        
+        //Adding Button Tags
+        button.tag = sectionIndex
+        colorButton.tag = sectionIndex
+        deleteButton.tag = sectionIndex
         
         //Create View
         view = UIView(frame: CGRect(x: 0, y: 0, width: delegate.tableView.frame.width, height: TaskTableViewController.headerHeight))
@@ -109,7 +116,8 @@ class Section {
         
         //Adding Target
         button.addTarget(delegate, action: #selector(delegate.sectionButtonPressed(sender:)), for: .touchUpInside)
-        
+        colorButton.addTarget(delegate, action: #selector(delegate.sectionColorButtonPressed(sender:)), for: .touchUpInside)
+        deleteButton.addTarget(delegate, action: #selector(delegate.sectionDeleteButtonPressed(sender:)), for: .touchUpInside)
         isViewSet = true
     }
     
