@@ -70,6 +70,32 @@ class TaskController {
         delegate?.updateViews()
     }
     
+    ///Deletes a whole section and saves the changes
+    func deleteASection(index: Int) {
+        
+        //Unwrapping Delegate
+        guard let delegate = delegate as? TaskTableViewController else {
+            print("Couldn't downcast delegate as TaskTableViewController!")
+            return
+        }
+        
+        //Loop through Tasks and delete them
+        for i in sections[index].tasks {
+            
+            guard let task = i else {
+                print("Task is nil in \(#file) \(#function) \(#line)")
+                continue
+            }
+            delegate.coreDataStack.delete(object: task)
+        }
+        
+        delegate.coreDataStack.save() //Save Deleted Tasks
+        
+        //Delete Section
+        sections.remove(at: index)
+        delegate.updateViews()
+    }
+    
     ///Organizes all Tasks into the correct sections. Meant to be only used once when starting up the app.
     func organizeTasks(tasks: [Task]) {
         

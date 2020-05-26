@@ -221,7 +221,7 @@ extension TaskTableViewController: TaskControllerDelegate {
     
     ///Section Delete Button was pressed
     @objc func sectionDeleteButtonPressed(sender: UIButton) {
-        print("Tag: \(sender.tag)")
+        taskController.deleteASection(index: sender.tag)
     }
     
 }
