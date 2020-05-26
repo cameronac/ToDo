@@ -27,16 +27,16 @@
                                             <rect key="frame" x="20" y="5" width="343" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUl-tM-uoS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="278" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATI-Ln-M5x">
-                                                    <rect key="frame" x="283" y="0.0" width="60" height="50"/>
+                                                    <rect key="frame" x="293" y="0.0" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="PP1-HZ-LZF"/>
-                                                        <constraint firstAttribute="height" constant="60" id="PWP-Lh-C6q"/>
+                                                        <constraint firstAttribute="width" secondItem="ATI-Ln-M5x" secondAttribute="height" multiplier="1:1" id="SHf-ov-Nia"/>
+                                                        <constraint firstAttribute="width" constant="50" id="ZJf-KA-H8x"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" image="square" catalog="system">

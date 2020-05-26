@@ -24,7 +24,7 @@ class Section {
     let button = UIButton()
     
     //MARK: - Initializer
-    init(name: String, tasks: [Task], isCollapsed: Bool = true, taskTableView: TaskTableViewController) {
+    init(name: String, tasks: [Task], isCollapsed: Bool = false, taskTableView: TaskTableViewController) {
         self.name = name
         self.tasks = tasks
         self.isCollapsed = isCollapsed
@@ -74,6 +74,5 @@ class Section {
         
         isViewSet = true
     }
-    
     
 }

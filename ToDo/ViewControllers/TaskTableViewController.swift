@@ -18,6 +18,7 @@ class TaskTableViewController: UITableViewController {
         //Setting Delegates
         taskController.delegate = self
         taskController.fetchTasks()
+        tableView.rowHeight = 60
         
         //Get Saved Settings
         navigationController?.navigationBar.barTintColor = colorController.getSavedColor()
@@ -77,7 +78,7 @@ class TaskTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         //isCollapsed == false
-        if taskController.sections[section].isCollapsed == false {
+        if taskController.sections[section].isCollapsed == true {
             return 0
         } else {
             return taskController.sections[section].tasks.count + 1
