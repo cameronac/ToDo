@@ -233,7 +233,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="w1r-EG-aZP">
-                                <rect key="frame" x="15" y="25" width="384" height="144"/>
+                                <rect key="frame" x="15" y="25" width="384" height="434"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Section" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utZ-do-IeW">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
@@ -247,8 +247,17 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THD-9L-46G">
+                                        <rect key="frame" x="0.0" y="114" width="384" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyt-0v-6Kh">
+                                        <rect key="frame" x="0.0" y="163" width="384" height="216"/>
+                                    </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxE-of-Tb0">
-                                        <rect key="frame" x="0.0" y="114" width="384" height="30"/>
+                                        <rect key="frame" x="0.0" y="404" width="384" height="30"/>
                                         <state key="normal" title="Create Section"/>
                                         <connections>
                                             <action selector="buttonPressed:" destination="bp8-v4-p97" eventType="touchUpInside" id="Kfh-Ik-IVf"/>
@@ -257,7 +266,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="utZ-do-IeW" secondAttribute="trailing" id="0kV-sU-ioN"/>
+                                    <constraint firstItem="THD-9L-46G" firstAttribute="leading" secondItem="w1r-EG-aZP" secondAttribute="leading" id="3bP-6N-c5z"/>
+                                    <constraint firstItem="eyt-0v-6Kh" firstAttribute="leading" secondItem="w1r-EG-aZP" secondAttribute="leading" id="Hg0-mF-qww"/>
+                                    <constraint firstAttribute="trailing" secondItem="eyt-0v-6Kh" secondAttribute="trailing" id="Oxy-rr-YED"/>
                                     <constraint firstItem="utZ-do-IeW" firstAttribute="leading" secondItem="w1r-EG-aZP" secondAttribute="leading" id="Pf4-Qo-Fya"/>
+                                    <constraint firstAttribute="trailing" secondItem="THD-9L-46G" secondAttribute="trailing" id="QsT-ES-Yfo"/>
                                     <constraint firstItem="sxE-of-Tb0" firstAttribute="leading" secondItem="w1r-EG-aZP" secondAttribute="leading" id="ZSu-OG-Luq"/>
                                     <constraint firstAttribute="trailing" secondItem="sxE-of-Tb0" secondAttribute="trailing" id="dqs-cx-vhT"/>
                                     <constraint firstItem="tAQ-Xv-PrF" firstAttribute="leading" secondItem="w1r-EG-aZP" secondAttribute="leading" id="hwn-o1-iTO"/>
@@ -274,6 +287,7 @@
                         <viewLayoutGuide key="safeArea" id="Bt4-Nw-YDB"/>
                     </view>
                     <connections>
+                        <outlet property="colorPickerView" destination="eyt-0v-6Kh" id="tSU-7W-eBa"/>
                         <outlet property="sectionTextField" destination="tAQ-Xv-PrF" id="4BX-Xg-uGn"/>
                     </connections>
                 </viewController>

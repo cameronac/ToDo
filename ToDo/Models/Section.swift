@@ -22,6 +22,9 @@ class Section {
     var view: UIView? = nil
     let label = UILabel()
     let button = UIButton()
+    let colorButton = UIButton()
+    let deleteButton = UIButton()
+    let stackView = UIStackView()
     
     //MARK: - Initializer
     init(name: String, tasks: [Task], isCollapsed: Bool = false, taskTableView: TaskTableViewController) {
@@ -47,27 +50,62 @@ class Section {
         
         //Setting Up Properties
         view.backgroundColor = viewColor
-        button.setTitle(name, for: .normal)
-        button.tintColor = .white
+        
+        //Set StackView Properties
+        stackView.spacing = 5
+        stackView.alignment = .center
+        stackView.distribution = .fillProportionally
+        stackView.axis = .horizontal
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(button)
+        stackView.addArrangedSubview(colorButton)
+        stackView.addArrangedSubview(deleteButton)
         
         //Set Button Properties
+        button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.contentHorizontalAlignment = .center
-        button.center = CGPoint(x: 0, y: 0)
-        button.tintColor = UIColor.white
         button.setTitle("\(name)", for: .normal)
+        button.contentHorizontalAlignment = .leading
         button.isUserInteractionEnabled = true
         
-        //Add Subviews
-        view.addSubview(button)
+        //Set ColorButton
+        colorButton.setTitle("", for: .normal)
+        colorButton.setImage(UIImage(systemName: "paintbrush.fill"), for: .normal)
+        colorButton.translatesAutoresizingMaskIntoConstraints = false
+        colorButton.tintColor = UIColor.white
+        colorButton.isUserInteractionEnabled = true
+        
+        //Set DeleteButton
+        deleteButton.setTitle("", for: .normal)
+        deleteButton.setImage(UIImage(systemName: "trash.fill"), for: .normal)
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.tintColor = UIColor.white
+        deleteButton.isUserInteractionEnabled = true
+        
+        view.addSubview(stackView)
         
         //Setting up Button Constraints
-        let buttonXC = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0)
-        let buttonYC = NSLayoutConstraint(item: button, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0)
-        let buttonWC = NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1.0, constant: 0)
-        let buttonWH = NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1.0, constant: 0)
+        let stackViewXC = NSLayoutConstraint(item: stackView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0)
+        let stackViewYC = NSLayoutConstraint(item: stackView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0)
+        let stackViewWC = NSLayoutConstraint(item: stackView, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1.0, constant: 0)
+        let stackViewWH = NSLayoutConstraint(item: stackView, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1.0, constant: 0)
         
-        NSLayoutConstraint.activate([buttonXC, buttonYC, buttonWC, buttonWH])
+        NSLayoutConstraint.activate([stackViewXC, stackViewYC, stackViewWC, stackViewWH])
+        
+        //Setting up Button Constraints
+        let buttonXC = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: stackView, attribute: .leading, multiplier: 1.0, constant: 15)
+        
+        NSLayoutConstraint.activate([buttonXC])
+        
+        //Setting up colorButton Constraints
+        let colorButtonWH = NSLayoutConstraint(item: colorButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: 50)
+        
+        NSLayoutConstraint.activate([colorButtonWH])
+        
+        //Setting up deleteButton Constraints
+        let deleteButtonWH = NSLayoutConstraint(item: deleteButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: 50)
+        
+        NSLayoutConstraint.activate([deleteButtonWH])
         
         //Adding Target
         button.addTarget(delegate, action: #selector(delegate.sectionButtonPressed(sender:)), for: .touchUpInside)
