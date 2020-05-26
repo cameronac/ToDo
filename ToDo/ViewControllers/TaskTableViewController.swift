@@ -22,7 +22,7 @@ class TaskTableViewController: UITableViewController {
         
         //Get Saved Settings
         navigationController?.navigationBar.barTintColor = colorController.getSavedColor()
-        tableView.reloadData()
+        updateViews()
     }
 
     //MARK: - Properties
@@ -181,6 +181,7 @@ extension TaskTableViewController: TaskControllerDelegate {
     ///Reloads TableView
     func updateViews() {
         tableView.reloadData()
+        tableView.rowHeight = 60
     }
     
     //Setting Up Header
