@@ -18,6 +18,7 @@ class TaskTableViewCell: UITableViewCell {
         }
     }
     var coreDataStack: CoreDataStack?
+    var buttonColors = [UIColor.gray, UIColor.systemGreen]
     static let identifier = "taskCell"
     
     
@@ -51,9 +52,11 @@ class TaskTableViewCell: UITableViewCell {
         
         //Change Complete and Assign a New Button Image
         if task.complete == false {
+            completeButton.tintColor = buttonColors[0]
             let image = UIImage(systemName: "square")
             sender.setImage(image, for: .normal)
         } else {
+            completeButton.tintColor = buttonColors[1]
             let image = UIImage(systemName: "checkmark.square.fill")
             sender.setImage(image, for: .normal)
         }
@@ -68,9 +71,11 @@ class TaskTableViewCell: UITableViewCell {
         
         //Change Complete and Assign a New Button Image
         if task?.complete == false {
+            completeButton.tintColor = buttonColors[0]
             let image = UIImage(systemName: "square")
             completeButton.setImage(image, for: .normal)
         } else {
+            completeButton.tintColor = buttonColors[1]
             let image = UIImage(systemName: "checkmark.square.fill")
             completeButton.setImage(image, for: .normal)
         }

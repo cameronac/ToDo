@@ -45,7 +45,7 @@ class Section {
         }
         
         //Setting Up Properties
-        view.backgroundColor = .gray
+        view.backgroundColor = .systemBlue
         button.setTitle(name, for: .normal)
         button.tintColor = .white
         

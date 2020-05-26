@@ -36,13 +36,13 @@ class TaskTableViewController: UITableViewController {
     
     //Prevent us from deleting ADD TASK row
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        
         if indexPath.row >= taskController.sections[indexPath.section].tasks.count {
             return false
         } else {
             return true
         }
     }
+    
     //Deleting Rows
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
