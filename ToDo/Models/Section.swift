@@ -16,6 +16,7 @@ class Section {
     var tasks: [Task?]
     var isViewSet: Bool = false
     var delegate: TaskTableViewController
+    var viewColor = UIColor.systemGray
     
     //Created Objects
     var view: UIView? = nil
@@ -45,7 +46,7 @@ class Section {
         }
         
         //Setting Up Properties
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = viewColor
         button.setTitle(name, for: .normal)
         button.tintColor = .white
         

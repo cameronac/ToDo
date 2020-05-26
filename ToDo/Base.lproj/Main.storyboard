@@ -56,10 +56,8 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="SGd-qB-OPG" secondAttribute="trailing" constant="20" id="H0s-kA-vfH"/>
                                         <constraint firstItem="SGd-qB-OPG" firstAttribute="leading" secondItem="MMx-O9-uFg" secondAttribute="leading" constant="20" id="Ifc-vV-bzb"/>
-                                        <constraint firstItem="SGd-qB-OPG" firstAttribute="centerX" secondItem="MMx-O9-uFg" secondAttribute="centerX" id="LMS-S4-76e"/>
                                         <constraint firstAttribute="bottom" secondItem="SGd-qB-OPG" secondAttribute="bottom" constant="5" id="PVQ-Gi-qzE"/>
                                         <constraint firstItem="SGd-qB-OPG" firstAttribute="top" secondItem="MMx-O9-uFg" secondAttribute="top" constant="5" id="WVU-gO-WNV"/>
-                                        <constraint firstItem="SGd-qB-OPG" firstAttribute="centerY" secondItem="MMx-O9-uFg" secondAttribute="centerY" id="rEK-zQ-mL9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -234,8 +232,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="w1r-EG-aZP">
-                                <rect key="frame" x="15" y="25" width="384" height="154"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="w1r-EG-aZP">
+                                <rect key="frame" x="15" y="25" width="384" height="144"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Section" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utZ-do-IeW">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
@@ -243,14 +241,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Section Name:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tAQ-Xv-PrF">
-                                        <rect key="frame" x="0.0" y="60" width="384" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tAQ-Xv-PrF">
+                                        <rect key="frame" x="0.0" y="55" width="384" height="34"/>
                                         <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxE-of-Tb0">
-                                        <rect key="frame" x="0.0" y="124" width="384" height="30"/>
+                                        <rect key="frame" x="0.0" y="114" width="384" height="30"/>
                                         <state key="normal" title="Create Section"/>
                                         <connections>
                                             <action selector="buttonPressed:" destination="bp8-v4-p97" eventType="touchUpInside" id="Kfh-Ik-IVf"/>
