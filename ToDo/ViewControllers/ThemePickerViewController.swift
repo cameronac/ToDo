@@ -34,13 +34,46 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func updateViews() {
         
         //Unwrapping
-        guard let colorController = colorController else {
+        guard let colorController = colorController, let delegate = delegate else {
             print("Bad delegate or colorController in ThemePicker")
             return
         }
+
+        //Pick Theme
+        if delegate.colorFor == 0 {
+            colorPickerView.selectRow(colorController.currentColorIndex, inComponent: 0, animated: true)
+            setBackgroundColor(index: colorController.currentColorIndex)
+        } else if delegate.colorFor == 1 {
+            //Pick Header Color
+            setHeaderColor(index: delegate.sectionIndex, colorIndex: nil)
+            
+        }
+    }
+    
+    ///Set header Color: Using Header/Section Index
+    func setHeaderColor(index: Int?, colorIndex: Int?) {
         
-        colorPickerView.selectRow(colorController.currentColorIndex, inComponent: 0, animated: true)
-        setBackgroundColor(index: colorController.currentColorIndex)
+        //Unwrapping
+        guard let colorController = colorController, let index = index, let delegate = delegate else {
+            print("Bad Variable is nil in: \(#file) \(#function) \(#line)")
+            return
+        }
+    
+        //Get Color
+        let section = delegate.taskController.sections[index]
+        
+        //Check Color Index
+        if let colorIndex = colorIndex {
+            let color = colorController.getUIColor(name: colorController.colorNames[colorIndex])
+            view.backgroundColor = color
+            section.viewColor = color
+        } else {
+            let color = colorController.getUIColor(name: colorController.colorNames[section.colorIndex])
+            view.backgroundColor = color
+            section.viewColor = color
+        }
+        //colorController.saveCurrentColor(color: color, index: index)
+
     }
     
     ///Sets new Background color for TaskTableViewController and Saves new Color value
@@ -82,7 +115,19 @@ extension ThemePickerViewController {
     
     //Value Changed
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        setBackgroundColor(index: row)
+        
+        //Unwrapping
+        guard let delegate = delegate else {
+            print("Bad delegate in ThemePickerViewController!")
+            return
+        }
+        
+        //Picker View Pick Theme or Header Color
+        if delegate.colorFor == 0 {
+            setBackgroundColor(index: row)
+        } else if delegate.colorFor == 1 {
+            setHeaderColor(index: delegate.sectionIndex, colorIndex: row)
+        }
     }
     
 }

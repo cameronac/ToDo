@@ -93,7 +93,20 @@ class TaskController {
         
         //Delete Section
         sections.remove(at: index)
+        resetSectionTags()
         delegate.updateViews()
+    }
+    
+    ///Rest Section Tags Prevents Index from getting out of range with the section button tags
+    func resetSectionTags() {
+
+        if sections.count > 0 {
+            //Giving Sections their tags
+            for i in 0...sections.count - 1 {
+                sections[i].sectionIndex = i
+            }
+        }
+        
     }
     
     ///Organizes all Tasks into the correct sections. Meant to be only used once when starting up the app.

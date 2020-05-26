@@ -31,7 +31,19 @@ class TaskTableViewController: UITableViewController {
     let taskController = TaskController()
     let colorController = ColorController()
     static let headerHeight: CGFloat = 60
+   
+    ///0 - Theme, 1 - Header
+    var colorFor = 0
+    
+    ///If brush was pressed on a section header then this will show the index of the header that was pressed
+    var sectionIndex: Int? = nil
+    
 
+    //MARK: - Actions
+    @IBAction func colorButtonPressed(_ sender: UIBarButtonItem) {
+        colorFor = 0
+        self.performSegue(withIdentifier: ThemePickerViewController.identifier, sender: self)
+    }
     
     // MARK: - Table view data source
     
@@ -216,7 +228,9 @@ extension TaskTableViewController: TaskControllerDelegate {
     
     ///Section Color Button was pressed
     @objc func sectionColorButtonPressed(sender: UIButton) {
-        print("Tag: \(sender.tag)")
+        colorFor = 1
+        sectionIndex = sender.tag
+        performSegue(withIdentifier: ThemePickerViewController.identifier, sender: self)
     }
     
     ///Section Delete Button was pressed
