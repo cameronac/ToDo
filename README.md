@@ -5,7 +5,7 @@
 Have you ever wanted a ToDo app that keeps things simple and is easy to navigate? Well *Insert name*, does just that keeping things simple by cutting down on all the complex ToDo app features that traditional ToDo apps have. 
 
 ## TODO: Show Gif of Apps Navigation 
-[!Navigation](Images/ToDoNavigation.gif)
+![Alt Text](Images/ToDoNavigation.gif)
 
 Customize the apps theme by choosing one of the many colors to choose from!
 
