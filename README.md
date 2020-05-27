@@ -1,10 +1,14 @@
 # ToDo App
-[LinkedIn](https://www.linkedin.com/in/cameron-collins-419096116/)
 
+### Links
+* [LinkedIn](https://www.linkedin.com/in/cameron-collins-419096116/)
+
+## Description
 Have you ever wanted a ToDo app that keeps things simple and is easy to navigate? Well this app, does just that by keeping things simple cutting down on all the complex ToDo app features that traditional ToDo apps have. 
 
 ## App Features
 ![Alt Text](Images/ToDoNavigation.gif)
+
 ![Alt Text](Images/ToDoCollapse.gif)
 
 Customize the apps theme and sections by picking one of the many colors!
