@@ -21,7 +21,7 @@ class TaskTableViewController: UITableViewController {
         tableView.rowHeight = 60
         
         //Get Saved Settings
-        navigationController?.navigationBar.barTintColor = colorController.getSavedColor()
+        navigationController?.navigationBar.barTintColor = colorController.getSavedColor(taskTableView: self)
         updateViews()
     }
 

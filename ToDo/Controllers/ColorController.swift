@@ -34,8 +34,20 @@ class ColorController {
         return tempColor
     }
     
+    ///Returns Colors index using a color name
+    func getColorIndex(name: String) -> Int {
+        
+        for i in 0...colorNames.count {
+            if name == colorNames[i] {
+                return i
+            }
+        }
+        
+        return 0
+    }
+    
     ///Saves newly selected color in UserDefaults. Updates currentColor and currentColorIndex variables.
-    func saveCurrentColor(color: UIColor, index: Int) {
+    func saveCurrentColor(color: UIColor, index: Int, taskTableView: TaskTableViewController?) {
         
         //Set Current Color and Index
         currentColor = color
@@ -44,13 +56,31 @@ class ColorController {
         //Save Index in UserDefaults
         let userDefaults = UserDefaults.standard
         userDefaults.set(currentColorIndex, forKey: "Color")
+        
+        
+        //Unwrapping
+        guard let delegate = taskTableView else {
+            return
+        }
+        
+        var headerColors: [Int] = []
+        
+        //Place all header colors into an array
+        for i in delegate.taskController.sections {
+            headerColors.append(i.colorIndex)
+        }
+        
+        //Save Header Colors
+        userDefaults.set(headerColors , forKey: "headerColors")
     }
     
     ///Gets the saved color from UserDefaults and then returns UIColor. Updates currentColor and currentColorIndex variables.
-    func getSavedColor() -> UIColor {
+    func getSavedColor(taskTableView: TaskTableViewController?) -> UIColor {
+        
         //Get UserDefaults Color
         let userDefaults = UserDefaults.standard
         let index = userDefaults.integer(forKey: "Color")
+        let headerColors = userDefaults.array(forKey: "headerColors")
         
         //Get Color
         let colorName = colorNames[index]

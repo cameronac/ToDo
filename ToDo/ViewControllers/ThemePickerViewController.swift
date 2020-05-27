@@ -44,7 +44,14 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
             colorPickerView.selectRow(colorController.currentColorIndex, inComponent: 0, animated: true)
             setBackgroundColor(index: colorController.currentColorIndex)
         } else if delegate.colorFor == 1 {
+            
+            //Unwrapping
+            guard let sectionIndex = delegate.sectionIndex else {
+                return
+            }
+            
             //Pick Header Color
+            colorPickerView.selectRow(delegate.taskController.sections[sectionIndex].colorIndex, inComponent: 0, animated: true)
             setHeaderColor(index: delegate.sectionIndex, colorIndex: nil)
             
         }
@@ -61,12 +68,14 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
         //Get Color
         let section = delegate.taskController.sections[index]
+        print(index)
         
         //Check Color Index
         if let colorIndex = colorIndex {
             let color = colorController.getUIColor(name: colorController.colorNames[colorIndex])
             view.backgroundColor = color
             section.viewColor = color
+            section.colorIndex = colorIndex
         } else {
             let color = colorController.getUIColor(name: colorController.colorNames[section.colorIndex])
             view.backgroundColor = color
@@ -80,17 +89,17 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func setBackgroundColor(index: Int) {
         
         //Unwrapping ColorController
-        guard let colorController = colorController else {
+        guard let colorController = colorController, let delegate = delegate else {
             print("Couldn't unwrap colorController in ThemePickerViewController!")
             return
         }
     
         //Get Color
         let color = colorController.getUIColor(name: colorController.colorNames[index])
-        colorController.saveCurrentColor(color: color, index: index)
+        colorController.saveCurrentColor(color: color, index: index, taskTableView: delegate)
         
         view.backgroundColor = color
-        delegate?.navigationController?.navigationBar.barTintColor = color
+        delegate.navigationController?.navigationBar.barTintColor = color
     }
 }
 

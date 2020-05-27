@@ -26,13 +26,16 @@ class Section {
             view.backgroundColor = newValue
         }
     }
-    var colorIndex = 0
+    var colorIndex = 2
+    
     var sectionIndex: Int {
         willSet {
-        //Adding Button Tags
-        button.tag = newValue
-        colorButton.tag = newValue
-        deleteButton.tag = newValue
+            print(newValue)
+            
+            //Adding Button Tags
+            button.tag = newValue
+            colorButton.tag = newValue
+            deleteButton.tag = newValue
         }
     }
     
@@ -58,6 +61,11 @@ class Section {
     ///Sets up the header view with the appropriate colors and buttons in a stackView
     private func setupView() {
     
+        //Adding Button Tags
+        button.tag = sectionIndex
+        colorButton.tag = sectionIndex
+        deleteButton.tag = sectionIndex
+        
         //Create View
         view = UIView(frame: CGRect(x: 0, y: 0, width: delegate.tableView.frame.width, height: TaskTableViewController.headerHeight))
         
