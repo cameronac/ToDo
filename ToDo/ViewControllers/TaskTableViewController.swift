@@ -248,7 +248,27 @@ extension TaskTableViewController: TaskControllerDelegate {
     
     ///Section Delete Button was pressed
     @objc func sectionDeleteButtonPressed(sender: UIButton) {
-        taskController.deleteASection(index: sender.tag)
+        
+        let alertController = UIAlertController(title: "Delete Section", message: "Are you sure!", preferredStyle: .alert)
+        let alertAction1 = UIAlertAction(title: "Yes", style: .destructive) { (action) in
+            switch action.style {
+            case .default:
+                break
+            case .cancel:
+                break
+            case .destructive:
+                self.taskController.deleteASection(index: sender.tag)
+            @unknown default:
+                break
+            }
+        }
+        let alertAction2 = UIAlertAction(title: "No", style: .default, handler: nil)
+        
+        alertController.addAction(alertAction1)
+        alertController.addAction(alertAction2)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
 }
