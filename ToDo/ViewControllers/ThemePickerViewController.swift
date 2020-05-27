@@ -69,7 +69,6 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
         //Get Color
         let section = delegate.taskController.sections[index]
-        print(index)
         
         //Check Color Index
         if let colorIndex = colorIndex {

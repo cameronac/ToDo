@@ -52,7 +52,6 @@ class TaskTableViewController: UITableViewController {
     public func updateSectionColors() {
         let colorIndex = colorController.getSavedHeaderColors(taskTableView: self)
         var counter = 0
-        print(colorIndex)
         for i in colorIndex {
             taskController.sections[counter].colorIndex = i
             if let color = ColorController.colors[ColorController.colorNames[i]] {
@@ -166,8 +165,6 @@ class TaskTableViewController: UITableViewController {
                 print("IndexPath is nil when unwrapping it in the tableView")
                 return
             }
-            
-            print("Section: \(indexPath.section), Row: \(indexPath.row)")
             
             destination.delegate = self
             destination.task = taskController.sections[indexPath.section].tasks[indexPath.row]
