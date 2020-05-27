@@ -12,7 +12,6 @@ protocol TaskControllerDelegate {
     func updateViews()
 }
 
-
 class TaskController {
     
     //MARK: - Properties
