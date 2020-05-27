@@ -7,11 +7,12 @@
 Have you ever wanted a ToDo app that keeps things simple and is easy to navigate? Well this app, does just that by keeping things simple cutting down on all the complex ToDo app features that traditional ToDo apps have. 
 
 ## App Features
+
+### Navigation
 ![Alt Text](Images/ToDoNavigation.gif)
 
+### Collapsing and Deleting Sections
 ![Alt Text](Images/ToDoCollapse.gif)
-
-Customize the apps theme and sections by picking one of the many colors!
 
 ## Features:
 * Saves Tasks using CoreData
