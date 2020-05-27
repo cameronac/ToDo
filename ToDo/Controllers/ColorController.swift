@@ -47,7 +47,7 @@ class ColorController {
     }
     
     ///Saves newly selected color in UserDefaults. Updates currentColor and currentColorIndex variables.
-    func saveCurrentColor(color: UIColor, index: Int, taskTableView: TaskTableViewController?) {
+    func saveCurrentColor(color: UIColor, index: Int) {
         
         //Set Current Color and Index
         currentColor = color
@@ -56,8 +56,9 @@ class ColorController {
         //Save Index in UserDefaults
         let userDefaults = UserDefaults.standard
         userDefaults.set(currentColorIndex, forKey: "Color")
-        
-        
+    }
+    
+    func saveHeaderColor(taskTableView: TaskTableViewController?) {
         //Unwrapping
         guard let delegate = taskTableView else {
             return
@@ -71,16 +72,16 @@ class ColorController {
         }
         
         //Save Header Colors
-        userDefaults.set(headerColors , forKey: "headerColors")
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(headerColors, forKey: "headerColors")
     }
     
     ///Gets the saved color from UserDefaults and then returns UIColor. Updates currentColor and currentColorIndex variables.
-    func getSavedColor(taskTableView: TaskTableViewController?) -> UIColor {
+    func getSavedColor() -> UIColor {
         
         //Get UserDefaults Color
         let userDefaults = UserDefaults.standard
         let index = userDefaults.integer(forKey: "Color")
-        let headerColors = userDefaults.array(forKey: "headerColors")
         
         //Get Color
         let colorName = colorNames[index]
@@ -98,4 +99,19 @@ class ColorController {
         
         return colorTemp
     }
+    
+    func getSavedHeaderColors(taskTableView: TaskTableViewController?) -> [Int] {
+        //User Defaults
+        let userDefaults = UserDefaults.standard
+        let headerColors = userDefaults.array(forKey: "headerColors")
+        print(headerColors)
+        guard let tempHeaderColors = headerColors as? [Int] else {
+            print("Could not downcast HeaderColors to type INT in Color Controller!")
+            return []
+        }
+        
+        return tempHeaderColors
+        
+    }
+    
 }

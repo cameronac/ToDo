@@ -96,7 +96,7 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
         //Get Color
         let color = colorController.getUIColor(name: colorController.colorNames[index])
-        colorController.saveCurrentColor(color: color, index: index, taskTableView: delegate)
+        colorController.saveCurrentColor(color: color, index: index)
         
         view.backgroundColor = color
         delegate.navigationController?.navigationBar.barTintColor = color
@@ -134,8 +134,25 @@ extension ThemePickerViewController {
         //Picker View Pick Theme or Header Color
         if delegate.colorFor == 0 {
             setBackgroundColor(index: row)
+            
+            //Unwrapping colorController
+            guard let colorController = colorController else {
+                print("ColorController is nil!")
+                return
+            }
+            
+            //Get UIColor
+            let optionalColor = colorController.colors[colorController.colorNames[row]]
+            
+            guard let color = optionalColor else {
+                print("Color does not exist!")
+                return
+            }
+            
+            colorController.saveCurrentColor(color: color, index: row)
         } else if delegate.colorFor == 1 {
             setHeaderColor(index: delegate.sectionIndex, colorIndex: row)
+            colorController?.saveHeaderColor(taskTableView: delegate)
         }
     }
     

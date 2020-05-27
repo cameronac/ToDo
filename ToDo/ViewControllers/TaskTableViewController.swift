@@ -21,8 +21,9 @@ class TaskTableViewController: UITableViewController {
         tableView.rowHeight = 60
         
         //Get Saved Settings
-        navigationController?.navigationBar.barTintColor = colorController.getSavedColor(taskTableView: self)
+        navigationController?.navigationBar.barTintColor = colorController.getSavedColor()
         updateViews()
+        updateSectionColors()
     }
 
     //MARK: - Properties
@@ -43,6 +44,22 @@ class TaskTableViewController: UITableViewController {
     @IBAction func colorButtonPressed(_ sender: UIBarButtonItem) {
         colorFor = 0
         self.performSegue(withIdentifier: ThemePickerViewController.identifier, sender: self)
+    }
+    
+    //MARK: - Methods
+    
+    ///Updates Section Colors after fetching and creating tasks are done
+    func updateSectionColors() {
+        let colorIndex = colorController.getSavedHeaderColors(taskTableView: self)
+        var counter = 0
+        print(colorIndex)
+        for i in colorIndex {
+            taskController.sections[counter].colorIndex = i
+            if let color = colorController.colors[colorController.colorNames[i]] {
+                taskController.sections[counter].viewColor = color
+            }
+            counter += 1
+        }
     }
     
     // MARK: - Table view data source
