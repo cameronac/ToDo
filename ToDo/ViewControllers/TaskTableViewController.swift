@@ -27,17 +27,16 @@ class TaskTableViewController: UITableViewController {
     }
 
     //MARK: - Properties
-    let coreDataStack = CoreDataStack()
-    var tasks: [Task]?
-    let taskController = TaskController()
-    let colorController = ColorController()
+    public let coreDataStack = CoreDataStack()
+    public let taskController = TaskController()
+    public let colorController = ColorController()
     static let headerHeight: CGFloat = 60
    
     ///0 - Theme, 1 - Header
-    var colorFor = 0
+    public var colorFor = 0
     
     ///If brush was pressed on a section header then this will show the index of the header that was pressed
-    var sectionIndex: Int? = nil
+    public var sectionIndex: Int? = nil
     
 
     //MARK: - Actions
@@ -46,16 +45,17 @@ class TaskTableViewController: UITableViewController {
         self.performSegue(withIdentifier: ThemePickerViewController.identifier, sender: self)
     }
     
+    
     //MARK: - Methods
     
     ///Updates Section Colors after fetching and creating tasks are done
-    func updateSectionColors() {
+    public func updateSectionColors() {
         let colorIndex = colorController.getSavedHeaderColors(taskTableView: self)
         var counter = 0
         print(colorIndex)
         for i in colorIndex {
             taskController.sections[counter].colorIndex = i
-            if let color = colorController.colors[colorController.colorNames[i]] {
+            if let color = ColorController.colors[ColorController.colorNames[i]] {
                 taskController.sections[counter].viewColor = color
             }
             counter += 1
@@ -229,7 +229,6 @@ extension TaskTableViewController: TaskControllerDelegate {
     
     ///Section Collapse Button was pressed
     @objc func sectionButtonPressed(sender: UIButton) {
-        print("Tag: \(sender.tag)")
         
         //Unwrapping Section Title
         guard let text = sender.titleLabel?.text else {

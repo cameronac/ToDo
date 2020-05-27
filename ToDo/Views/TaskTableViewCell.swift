@@ -12,20 +12,18 @@ import AudioToolbox
 class TaskTableViewCell: UITableViewCell {
     
     //MARK: - Properties
-    var task: Task? {
+    public var task: Task? {
         didSet {
             setupCell()
         }
     }
-    var coreDataStack: CoreDataStack?
-    var buttonColors = [UIColor.gray, UIColor.systemGreen]
+    public var coreDataStack: CoreDataStack?
+    public var buttonColors = [UIColor.gray, UIColor.systemGreen]
     static let identifier = "taskCell"
-    
     
     //MARK: - Outlets
     @IBOutlet weak var taskTitle: UILabel!
     @IBOutlet weak var completeButton: UIButton!
-    
     
     //MARK: - Actions
     
@@ -63,10 +61,12 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     
-    //MARK: - Functions
+    //MARK: - Methods
+    
+    //MARK: - Private
     
     ///Assigning cellViews properties
-    func setupCell() {
+    private func setupCell() {
         taskTitle.text = task?.title
         
         //Change Complete and Assign a New Button Image
@@ -80,7 +80,6 @@ class TaskTableViewCell: UITableViewCell {
             completeButton.setImage(image, for: .normal)
         }
     }
-    
     
     //MARK: - Unused Code
     override func setSelected(_ selected: Bool, animated: Bool) {

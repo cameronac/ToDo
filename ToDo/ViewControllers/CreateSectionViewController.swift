@@ -15,7 +15,7 @@ class CreateSectionViewController: UIViewController {
     }
     
     //MARK: - Properties
-    var delegate: TaskTableViewController?
+    public var delegate: TaskTableViewController?
     static let identifier = "createSectionSegue"
     
     //MARK: - Outlets

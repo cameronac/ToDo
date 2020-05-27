@@ -22,16 +22,17 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     //MARK: - Properties
     static let identifier = "colorSegue"
-    var delegate: TaskTableViewController?
-    var colorController: ColorController?
+    public var delegate: TaskTableViewController?
+    public var colorController: ColorController?
     
     //MARK: - Outlets
     @IBOutlet weak var colorPickerView: UIPickerView!
     
     //MARK: - Methods
     
+    //MARK: - Private Functions
     ///Updates Views
-    func updateViews() {
+    private func updateViews() {
         
         //Unwrapping
         guard let colorController = colorController, let delegate = delegate else {
@@ -58,7 +59,7 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     ///Set header Color: Using Header/Section Index
-    func setHeaderColor(index: Int?, colorIndex: Int?) {
+    private func setHeaderColor(index: Int?, colorIndex: Int?) {
         
         //Unwrapping
         guard let colorController = colorController, let index = index, let delegate = delegate else {
@@ -72,21 +73,19 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         //Check Color Index
         if let colorIndex = colorIndex {
-            let color = colorController.getUIColor(name: colorController.colorNames[colorIndex])
+            let color = colorController.getUIColor(name: ColorController.colorNames[colorIndex])
             view.backgroundColor = color
             section.viewColor = color
             section.colorIndex = colorIndex
         } else {
-            let color = colorController.getUIColor(name: colorController.colorNames[section.colorIndex])
+            let color = colorController.getUIColor(name: ColorController.colorNames[section.colorIndex])
             view.backgroundColor = color
             section.viewColor = color
         }
-        //colorController.saveCurrentColor(color: color, index: index)
-
     }
     
     ///Sets new Background color for TaskTableViewController and Saves new Color value
-    func setBackgroundColor(index: Int) {
+    private func setBackgroundColor(index: Int) {
         
         //Unwrapping ColorController
         guard let colorController = colorController, let delegate = delegate else {
@@ -95,7 +94,7 @@ class ThemePickerViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
     
         //Get Color
-        let color = colorController.getUIColor(name: colorController.colorNames[index])
+        let color = colorController.getUIColor(name: ColorController.colorNames[index])
         colorController.saveCurrentColor(color: color, index: index)
         
         view.backgroundColor = color
@@ -114,12 +113,12 @@ extension ThemePickerViewController {
     
     //Return Color Count
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return colorController?.colorNames.count ?? 0
+        return ColorController.colorNames.count
     }
     
     //Set Titles
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return colorController?.colorNames[row] ?? "Nil"
+        return ColorController.colorNames[row]
     }
     
     //Value Changed
@@ -142,7 +141,7 @@ extension ThemePickerViewController {
             }
             
             //Get UIColor
-            let optionalColor = colorController.colors[colorController.colorNames[row]]
+            let optionalColor = ColorController.colors[ColorController.colorNames[row]]
             
             guard let color = optionalColor else {
                 print("Color does not exist!")

@@ -19,10 +19,10 @@ class TaskDetailViewController: UIViewController {
     
     //MARK: - Properties
     static let identifier = "detailSegue"
-    var coreDataStack: CoreDataStack?
-    var delegate: TaskTableViewController?
-    var task: Task?
-    var canEdit: Bool = false
+    public var coreDataStack: CoreDataStack?
+    public var delegate: TaskTableViewController?
+    public var task: Task?
+    public var canEdit: Bool = false
 
     //MARK: - Outlets
     @IBOutlet weak var titleLabel: UITextField!
@@ -30,7 +30,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var completedLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    
+
     //MARK: - Actions
     
     //Edit the Title and Description Fields| If they changed save the changes
@@ -68,7 +68,7 @@ class TaskDetailViewController: UIViewController {
     //MARK: - Functions
     
     ///Animate to Gray
-    func animateToGray() {
+    private func animateToGray() {
         UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: [], animations: {
                    //White to Gray
                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
@@ -79,7 +79,7 @@ class TaskDetailViewController: UIViewController {
     }
     
     ///Animate to White
-    func animateToWhite() {
+    private func animateToWhite() {
         UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: [], animations: {
                    //White to Gray
                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
@@ -90,9 +90,8 @@ class TaskDetailViewController: UIViewController {
         
     }
     
-    
     ///Sets up the Views with properties when viewDidLoad
-    func setupView() {
+    private func setupView() {
         
         //Unwrapping
         guard let task = task else {

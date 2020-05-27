@@ -11,12 +11,12 @@ import UIKit
 class Section {
     
     //MARK: - Properties
-    var name: String
-    var isCollapsed: Bool
-    var tasks: [Task?]
-    var isViewSet: Bool = false
-    var delegate: TaskTableViewController
-    var viewColor: UIColor = UIColor.systemGray {
+    public var name: String    //Section Name
+    public var isCollapsed: Bool   //Section Collapsed?
+    public var tasks: [Task?]  //Tasks for this Section
+    public var isViewSet: Bool = false //Did we setup the views
+    public var delegate: TaskTableViewController   //Delegate used for adding targets for the buttons
+    public var viewColor: UIColor = UIColor.systemGray {   //Assigns the new Color when set
         willSet {
             guard let view = view else {
                 print("Bad View when trying to assign color! \(#file) \(#function) \(#line)")
@@ -26,12 +26,10 @@ class Section {
             view.backgroundColor = newValue
         }
     }
-    var colorIndex = 2
     
-    var sectionIndex: Int {
+    public var colorIndex = 2  //Used to find colors by their index in ColorController
+    public var sectionIndex: Int { //When section index is assigned set their tags
         willSet {
-            print(newValue)
-            
             //Adding Button Tags
             button.tag = newValue
             colorButton.tag = newValue
@@ -39,13 +37,13 @@ class Section {
         }
     }
     
-    //Created Objects
-    var view: UIView? = nil
-    let label = UILabel()
-    let button = UIButton()
-    let colorButton = UIButton()
-    let deleteButton = UIButton()
-    let stackView = UIStackView()
+    //View Objects
+    public var view: UIView? = nil //Public since we need to return it as a tableView header
+    private let label = UILabel()
+    private let button = UIButton()
+    private let colorButton = UIButton()
+    private let deleteButton = UIButton()
+    private let stackView = UIStackView()
     
     //MARK: - Initializer
     init(name: String, tasks: [Task], isCollapsed: Bool = false, taskTableView: TaskTableViewController, sectionIndex: Int) {

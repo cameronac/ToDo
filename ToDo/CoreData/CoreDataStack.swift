@@ -34,7 +34,7 @@ class CoreDataStack {
     }()
     
     //Getting mainContext
-    var mainContext: NSManagedObjectContext {
+    public var mainContext: NSManagedObjectContext {
         return container.viewContext
     }
     
@@ -42,7 +42,7 @@ class CoreDataStack {
     //MARK: - Methods
     
     ///Saves Tasks to CoreData allowing there to be persistence
-    func save() {
+    public func save() {
         do {
             try CoreDataStack.shared.mainContext.save()
         } catch {
@@ -51,13 +51,13 @@ class CoreDataStack {
     }
     
     ///Deletes a task object and saves the changes
-    func delete(object: NSManagedObject) {
+    public func delete(object: NSManagedObject) {
         CoreDataStack.shared.mainContext.delete(object)
         save()
     }
     
     ///Fetches all Tasks at the start of the app
-    func fetchAllTasks() -> [Task] {
+    public func fetchAllTasks() -> [Task] {
         
         //Fetch Request
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()

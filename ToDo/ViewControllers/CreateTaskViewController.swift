@@ -12,12 +12,13 @@ class CreateTaskViewController: UIViewController {
     
     //MARK: - Properties
     static let identifier = "createTaskSegue"
-    var delegate: TaskTableViewController?
-    var indexPath: IndexPath?
+    public var delegate: TaskTableViewController?
+    public var indexPath: IndexPath?
     
     //MARK: - Outlets
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    
     
     //MARK: - Actions
     

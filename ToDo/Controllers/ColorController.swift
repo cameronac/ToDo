@@ -12,18 +12,19 @@ import UIKit
 class ColorController {
     
     //MARK: - Properties
-    var currentColor: UIColor = UIColor.systemIndigo
-    var currentColorIndex: Int = 5
+    public var currentColor: UIColor = UIColor.systemIndigo
+    public var currentColorIndex: Int = 5
     
-    var colors: [String: UIColor] = ["Red": UIColor.systemRed, "Blue": UIColor.systemBlue, "Gray": UIColor.systemGray, "Pink": UIColor.systemPink, "Teal": UIColor.systemTeal, "Indigo": UIColor.systemIndigo, "Orange": UIColor.systemOrange, "Purple": UIColor.systemPurple, "Yellow": UIColor.systemYellow, "Green": UIColor.systemGreen]
+    static let colors: [String: UIColor] = ["Red": UIColor.systemRed, "Blue": UIColor.systemBlue, "Gray": UIColor.systemGray, "Pink": UIColor.systemPink, "Teal": UIColor.systemTeal, "Indigo": UIColor.systemIndigo, "Orange": UIColor.systemOrange, "Purple": UIColor.systemPurple, "Yellow": UIColor.systemYellow, "Green": UIColor.systemGreen]
     
-    var colorNames: [String] = ["Red", "Blue", "Gray", "Pink", "Teal", "Indigo", "Orange", "Purple", "Yellow", "Green"]
+    static let colorNames: [String] = ["Red", "Blue", "Gray", "Pink", "Teal", "Indigo", "Orange", "Purple", "Yellow", "Green"]
     
     //MARK: - Methods
     
+    //MARK: - Get Color Elements
     ///Returns a UIColor by getting the name of the color.
-    func getUIColor(name: String) -> UIColor {
-        let color = colors[name]
+    public func getUIColor(name: String) -> UIColor {
+        let color = ColorController.colors[name]
         
         //Unwrapping Color
         guard let tempColor = color else {
@@ -35,10 +36,10 @@ class ColorController {
     }
     
     ///Returns Colors index using a color name
-    func getColorIndex(name: String) -> Int {
+    public func getColorIndex(name: String) -> Int {
         
-        for i in 0...colorNames.count {
-            if name == colorNames[i] {
+        for i in 0...ColorController.colorNames.count {
+            if name == ColorController.colorNames[i] {
                 return i
             }
         }
@@ -46,8 +47,9 @@ class ColorController {
         return 0
     }
     
+    //MARK: - Save Colors
     ///Saves newly selected color in UserDefaults. Updates currentColor and currentColorIndex variables.
-    func saveCurrentColor(color: UIColor, index: Int) {
+    public func saveCurrentColor(color: UIColor, index: Int) {
         
         //Set Current Color and Index
         currentColor = color
@@ -58,7 +60,8 @@ class ColorController {
         userDefaults.set(currentColorIndex, forKey: "Color")
     }
     
-    func saveHeaderColor(taskTableView: TaskTableViewController?) {
+    ///Saves Header Colors in UserDefaults
+    public func saveHeaderColor(taskTableView: TaskTableViewController?) {
         //Unwrapping
         guard let delegate = taskTableView else {
             return
@@ -76,16 +79,17 @@ class ColorController {
         userDefaults.set(headerColors, forKey: "headerColors")
     }
     
+    //MARK: - Get Saved Colors
     ///Gets the saved color from UserDefaults and then returns UIColor. Updates currentColor and currentColorIndex variables.
-    func getSavedColor() -> UIColor {
+    public func getSavedColor() -> UIColor {
         
         //Get UserDefaults Color
         let userDefaults = UserDefaults.standard
         let index = userDefaults.integer(forKey: "Color")
         
         //Get Color
-        let colorName = colorNames[index]
-        let color = colors[colorName]
+        let colorName = ColorController.colorNames[index]
+        let color = ColorController.colors[colorName]
         
         //Unwrapping
         guard let colorTemp = color else {
@@ -100,18 +104,18 @@ class ColorController {
         return colorTemp
     }
     
-    func getSavedHeaderColors(taskTableView: TaskTableViewController?) -> [Int] {
+    ///Get Saved Header Colors from UserDefaults
+    public func getSavedHeaderColors(taskTableView: TaskTableViewController?) -> [Int] {
         //User Defaults
         let userDefaults = UserDefaults.standard
         let headerColors = userDefaults.array(forKey: "headerColors")
-        print(headerColors)
+        
         guard let tempHeaderColors = headerColors as? [Int] else {
             print("Could not downcast HeaderColors to type INT in Color Controller!")
             return []
         }
         
         return tempHeaderColors
-        
     }
     
 }

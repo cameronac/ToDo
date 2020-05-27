@@ -16,19 +16,22 @@ protocol TaskControllerDelegate {
 class TaskController {
     
     //MARK: - Properties
-    var sections: [Section] = []
-    var delegate: TaskControllerDelegate?
+    public var sections: [Section] = []
+    public var delegate: TaskControllerDelegate?
+    
     
     //MARK: - Methods
     
+    //MARK: - Public
+    
     ///Fetches and Saves Tasks to Tasks Variable in the TaskController
-    func fetchTasks() {
+    public func fetchTasks() {
         let allTasks = CoreDataStack.shared.fetchAllTasks()
         organizeTasks(tasks: allTasks)
     }
     
     ///Create a new Task, save it and place it in the correct section. Calls protocol updateViews function!
-    func createTask(title: String, bodyText: String, complete: Bool, section: String = "Default") {
+    public func createTask(title: String, bodyText: String, complete: Bool, section: String = "Default") {
         
         //Unwrapping Delegate
         guard let delegate = delegate as? TaskTableViewController else {
@@ -50,7 +53,7 @@ class TaskController {
     }
     
     ///Create a new Section. The new section is appended to the sections array. Calls protocol updateViews function!
-    func createASection(name: String) {
+    public func createASection(name: String) {
         
         //Checking if we already have the section name
         let result = findSection(name: name)
@@ -71,7 +74,7 @@ class TaskController {
     }
     
     ///Deletes a whole section and saves the changes
-    func deleteASection(index: Int) {
+    public func deleteASection(index: Int) {
         
         //Unwrapping Delegate
         guard let delegate = delegate as? TaskTableViewController else {
@@ -97,8 +100,39 @@ class TaskController {
         delegate.updateViews()
     }
     
+    ///Finds a Section and returns the Section
+    public func getSection(name: String) -> Int? {
+        
+        for i in 0...sections.count - 1 {
+            if sections[i].name == name {
+                return i
+            }
+        }
+        
+        return nil
+    }
+
+    ///Collapse Section: Modifies isCollapsed variable in Section and Returns the Index of the Section to be collapsed
+    public func collapse(section name: String) -> Int? {
+        var section: Int?
+        
+        //Get the correct section
+        for i in 0...sections.count - 1 {
+            if sections[i].name == name {
+                sections[i].isCollapsed = !sections[i].isCollapsed
+                section = i
+                break
+            }
+        }
+        
+        return section
+    }
+    
+    
+    //MARK: - Private Functions
+    
     ///Rest Section Tags Prevents Index from getting out of range with the section button tags
-    func resetSectionTags() {
+    private func resetSectionTags() {
 
         if sections.count > 0 {
             //Giving Sections their tags
@@ -106,11 +140,10 @@ class TaskController {
                 sections[i].sectionIndex = i
             }
         }
-        
     }
     
     ///Organizes all Tasks into the correct sections. Meant to be only used once when starting up the app.
-    func organizeTasks(tasks: [Task]) {
+    private func organizeTasks(tasks: [Task]) {
         
         //Loop Through and Add the necessary Sections
         for i in tasks {
@@ -136,7 +169,7 @@ class TaskController {
     }
     
     ///Organizes a Single Task into the correct Section
-    func organizeSingleTask(task: Task) {
+    private func organizeSingleTask(task: Task) {
         
         //Unwrapping Section name
         guard let sectionName = task.section else {
@@ -155,7 +188,7 @@ class TaskController {
     }
     
     ///Finds a Section and returns true if it finds one.
-    func findSection(name: String) -> Bool {
+    private func findSection(name: String) -> Bool {
         
         for i in sections {
             if i.name == name {
@@ -164,34 +197,6 @@ class TaskController {
         }
         
         return false
-    }
-    
-    ///Finds a Section and returns the Section
-    func getSection(name: String) -> Int? {
-        
-        for i in 0...sections.count - 1 {
-            if sections[i].name == name {
-                return i
-            }
-        }
-        
-        return nil
-    }
-    
-    ///Collapse Section: Modifies isCollapsed variable in Section and Returns the Index of the Section to be collapsed
-    func collapse(section name: String) -> Int? {
-        var section: Int?
-        
-        //Get the correct section
-        for i in 0...sections.count - 1 {
-            if sections[i].name == name {
-                sections[i].isCollapsed = !sections[i].isCollapsed
-                section = i
-                break
-            }
-        }
-        
-        return section
     }
     
 }
