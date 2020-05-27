@@ -51,17 +51,20 @@ class TaskTableViewController: UITableViewController {
     ///Updates Section Colors after fetching and creating tasks are done
     public func updateSectionColors() {
         let colorIndex = colorController.getSavedHeaderColors(taskTableView: self)
+    
         var counter = 0
-
-        //Double Check Index
-        if taskController.sections.count > 0 {
-            for i in colorIndex {
-                taskController.sections[counter].colorIndex = i
-                if let color = ColorController.colors[ColorController.colorNames[i]] {
-                    taskController.sections[counter].viewColor = color
+        
+        for i in taskController.sections {
+            
+            if counter < colorIndex.count {
+                i.colorIndex = colorIndex[counter]
+                
+                //Get Color
+                if let color = ColorController.colors[ColorController.colorNames[colorIndex[counter]]] {
+                    i.viewColor = color
                 }
-                counter += 1
             }
+            counter += 1
         }
     }
     
