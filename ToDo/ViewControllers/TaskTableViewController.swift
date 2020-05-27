@@ -52,12 +52,16 @@ class TaskTableViewController: UITableViewController {
     public func updateSectionColors() {
         let colorIndex = colorController.getSavedHeaderColors(taskTableView: self)
         var counter = 0
-        for i in colorIndex {
-            taskController.sections[counter].colorIndex = i
-            if let color = ColorController.colors[ColorController.colorNames[i]] {
-                taskController.sections[counter].viewColor = color
+
+        //Double Check Index
+        if taskController.sections.count > 0 {
+            for i in colorIndex {
+                taskController.sections[counter].colorIndex = i
+                if let color = ColorController.colors[ColorController.colorNames[i]] {
+                    taskController.sections[counter].viewColor = color
+                }
+                counter += 1
             }
-            counter += 1
         }
     }
     
